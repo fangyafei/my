@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-23 16:33:28
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>印度科幻电影五部倾情奉献_房亚飞的个人网站</title>
+<meta name="keywords" content="印度,科幻电影,五部,倾情,奉献,度,科幻电影," />
+<meta name="description" content="度科幻电影一：《宝莱坞机器人之恋》 主演：艾西瓦娅雷，拉吉尼坎塔 类型：喜剧 / 动作 / 爱情 / 科幻 上映日期：2010-10-01 宝莱坞科幻大片，讲述一位天才科学家设计的智能机器人七弟他有了人类的感情，爱上了这个科学家的女朋友。正因为如此，导致机器人七弟后来被科学家的老师利用，变成了杀人机器。 最终科学家取出安放在机器人体内的芯片，使他回到了" />
+<link href="http://www.fangyafei.com/templets/fangyafei/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="http://www.fangyafei.com/templets/fangyafei/style/page.css" rel="stylesheet" media="screen" type="text/css" />
+
+<script language="javascript" type="text/javascript" src="http://www.fangyafei.com/include/dedeajax2.js"></script>
+<script type="text/javascript" src="http://www.fangyafei.com/templets/fangyafei/js/jquery-1.7.2.min.js"></script>
+<!-- <link href="http://www.fangyafei.com/include/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" media="screen" type="text/css" />
+<script language="javascript" type="text/javascript" src="http://www.fangyafei.com/include/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<script> SyntaxHighlighter.all() //执行代码高亮 </script> -->
+<script language="javascript" type="text/javascript" src="/include/ckeditor/plugins/syntaxhighlight/code.js" ></script>
+<link type="text/css" rel="stylesheet" href="/include/ckeditor/plugins/syntaxhighlight/styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="/include/ckeditor/plugins/syntaxhighlight/styles/shThemeDefault.css"/>
+<script type="text/javascript">
+SyntaxHighlighter.config.clipboardSwf = '/include/ckeditor/plugins/syntaxhighlight/scripts/clipboard.swf';
+SyntaxHighlighter.config.strings.expandSource = 'show source';
+SyntaxHighlighter.config.strings.viewSource = '源码';
+SyntaxHighlighter.config.strings.copyToClipboard = '复制';
+SyntaxHighlighter.config.strings.copyToClipboardConfirmation = '代码在你的剪贴板，快去粘贴吧！';
+SyntaxHighlighter.config.strings.print = '打印';
+SyntaxHighlighter.config.strings.help = '帮助';
+SyntaxHighlighter.config.strings.alert = '我爱学习网很高兴地告诉你：\n\n';
+SyntaxHighlighter.all();
+</script>
+<script language="javascript" type="text/javascript">
+    <!--
+    function CheckLogin(){
+          var taget_obj = document.getElementById('_ajax_feedback');
+          myajax = new DedeAjax(taget_obj,false,false,'','','');
+          myajax.SendGet2("/member/ajax_feedback.php");
+          DedeXHTTP = null;
+    }
+    function postBadGood(ftype,fid)
+    {
+        var taget_obj = document.getElementById(ftype+fid);
+        var saveid = GetCookie('badgoodid');
+        if(saveid != null)
+        {
+            var saveids = saveid.split(',');
+            var hasid = false;
+            saveid = '';
+            j = 1;
+            for(i=saveids.length-1;i>=0;i--)
+            {
+                if(saveids[i]==fid && hasid) continue;
+                else {
+                    if(saveids[i]==fid && !hasid) hasid = true;
+                    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                    j++;
+                    if(j==10 && hasid) break;
+                    if(j==9 && !hasid) break;
+                }
+            }
+            if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+            else saveid += ','+fid;
+            SetCookie('badgoodid',saveid,1);
+        }
+        else
+        {
+            SetCookie('badgoodid',fid,1);
+        }
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        myajax.SendGet2("/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+    }
+    function postDigg(ftype,aid)
+    {
+        var taget_obj = document.getElementById('newdigg');
+        var saveid = GetCookie('diggid');
+        if(saveid != null)
+        {
+            var saveids = saveid.split(',');
+            var hasid = false;
+            saveid = '';
+            j = 1;
+            for(i=saveids.length-1;i>=0;i--)
+            {
+                if(saveids[i]==aid && hasid) continue;
+                else {
+                    if(saveids[i]==aid && !hasid) hasid = true;
+                    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                    j++;
+                    if(j==20 && hasid) break;
+                    if(j==19 && !hasid) break;
+                }
+            }
+            if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+            else saveid += ','+aid;
+            SetCookie('diggid',saveid,1);
+        }
+        else
+        {
+            SetCookie('diggid',aid,1);
+        }
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        var url = "/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+        myajax.SendGet2(url);
+    }
+    function getDigg(aid)
+    {
+        var taget_obj = document.getElementById('newdigg');
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        myajax.SendGet2("/plus/digg_ajax.php?id="+aid);
+        DedeXHTTP = null;
+    }
+    -->
+</script>
+</head>
+<body>    
+    <div class="main">
+    
+        <!-- logo start -->
+        <div class="logo">
+    <div class="text">
+        <h1>房亚飞的个人网站</h1>
+    </div>
+    <div class="description">
+        <a href=http://www.fangyafei.com/ME>其实房亚飞是一名苦逼的php程序员，喜好睡觉，每天睡不醒的样子；喜欢跟志同道合的朋友出去游玩，但没太多时间；喜欢寻求刺激 . . .</a>
+    </div>
+</div><!-- logo end -->       
+        <!-- header start -->
+        <div class="header">
+    <ul>
+        <li><a href="http://www.fangyafei.com" >主页</a></li>
+        <!-- 
+            <li>
+            	<a href="http://www.fangyafei.com/BLOG/"  rel='dropmenu1' title="博客">博客</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/TOOLS/"  title="工具">工具</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/JL/"  title="交流">交流</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/ME/"  rel='dropmenu9' title="我">我</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/RL/"  title="万年历">万年历</a>
+            </li> 
+         -->
+		 
+			<li>
+				<a href='http://www.fangyafei.com/BLOG/'  rel='dropmenu1'>博客</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/TOOLS/' >工具</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/JL/' >交流</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/ME/'  rel='dropmenu9'>我</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/RL/' >万年历</a> 
+			</li> 
+		
+        <!-- 
+                               <li><a href="http://www.fangyafei.com/BLOG/" title="博客">博客</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/TOOLS/" title="工具">工具</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/JL/" title="交流">交流</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/ME/" title="我">我</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/RL/" title="万年历">万年历</a></li> 
+                                -->           
+    </ul>
+</div><!-- header end -->
+<div class="header_top">  
+    <div class="center">  
+     	<div class="toplinks">
+     		<a href="http://www.fangyafei.com/plus/heightsearch.php">精确搜索</a>
+     		<a href="http://www.fangyafei.com/data/sitemap.html" target="_blank">网站地图</a>
+     		<a href="http://www.fangyafei.com/tags.php">TAG标签</a>
+     		<a href="http://www.fangyafei.com/data/rssmap.html" class="rss">RSS订阅</a>  
+     		<a href="http://www.fangyafei.com">返回首页</a>
+     	</div>
+    </div> 
+</div>
+
+
+        
+        
+        <div class="middle clear-all">
+            <div class="position">
+                <a href='http://www.fangyafei.com/'>主页</a> > <a href='/a/yingyin/'>影音</a> > 
+            </div>
+            <div class="hr"></div>
+            <div class="left clear-width">
+                <div class="article-title">
+                    <h1>
+                        <a href="http://www.fangyafei.com/a/yingyin/20140618/23.html" title="印度科幻电影五部倾情奉献">印度科幻电影五部倾情奉献</a>
+                    </h1>
+                </div>
+                <div class="article-info">
+                    <span>作者：admin</span>
+                    <span><a href="" title="进入博客分类-影音" target="_blank">影音</a></span>
+                    <span>Tags：</span>
+                    <span class="update">2014-06-18 14:25:10 </span>
+                    <span>来源：未知</span>
+                    <span>浏览：<script src="/plus/count.php?view=yes&aid=23&mid=1" type='text/javascript' language="javascript"></script></span>
+                </div>
+                <div class="content">
+                
+                    <p class="oldsource">
+                        原文地址：
+                        <a href="" target="_blank" rel="nofollow"></a>
+                    </p>
+                    <p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	<strong style="padding: 0px; margin: 0px;">度科幻电影一：《宝莱坞机器人之恋》</strong></p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　主演：艾西瓦娅&middot;雷，拉吉尼坎塔</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　类型：喜剧 / 动作 / 爱情 / 科幻</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　 &nbsp; 上映日期：2010-10-01</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　 &nbsp; 宝莱坞科幻大片，讲述一位天才科学家设计的智能机器人&quot;七弟&quot;他有了人类的感情，爱上了这个科学家的女朋友。正因为如此，导致机器人&ldquo;七弟&rdquo;后来被科学家的老师利用，变成了杀人机器。 &nbsp;<br />
+	&nbsp; &nbsp; &nbsp; 最终科学家取出安放在机器人体内的芯片，使他回到了以前那个善良的&ldquo;七弟&rdquo;，在审判席，法官命令科学家摧毁机器人，科学家不忍心下手，&ldquo;七弟&rdquo;进行了自我解体。</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	<strong style="padding: 0px; margin: 0px;">印度科幻电影二：《冻结的幸福》</strong></p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　主演：尼尔&middot;尼汀&middot;穆科什 / 碧帕莎&middot;芭素 / 索菲亚&middot;查德哈瑞 /Rahul Dev/Bobby Vatsa</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　类型：科幻</p>
+<div style="padding: 0px; margin: 0px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 25px;">
+	<div style="padding: 0px; margin: 0px; text-align: center;">
+		<img alt="好看的印度科幻电影" border="0" height="350" src="http://www.chachaba.com/news/uploads/allimg/131008/3003_131008095358_1.jpg" style="padding: 0px; margin: 0px; border: 0px; clear: left; cursor: pointer;" width="250" /></div>
+</div>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　雷尼尔Nitin生物(Mukesh),都要为他的摄影师&hellip;&hellip;直到他继承一个非常的特别的照相机,他从他的祖父在某种程度上改变生活,他也不能想象他喜出望外。&ldquo;权力&rdquo;的改变命运的射线照相机之间。他的生活变成一个大坐过山车,他发大财并帮助他遇见了他的生活,Simi爱》)(Bipasha是一件令人兴奋的性感的DJ和一个有主见的人。每件事都是走向&ldquo;肥多利,从此过上了幸福的。正如他们所说的能力越大,责任和光线的情况,也很危险。他现在必须面对的现实和赢得不仅与邪恶的力量,而且攻击的命运。爱立信是Aa Dekhen惊悚片,浪漫的音乐与一些伟大的边缘的座位行动。可以改变他的日期与命运的光线吗?</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	<strong style="padding: 0px; margin: 0px;">印度科幻电影三：《天使战将》</strong></p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　主演: 沙鲁克&middot;汗 / 卡琳娜&middot;卡普 / 阿俊&middot;拉姆鲍 / Tom Wu / Shahana Goswami / Satish Shah / 达里普&middot;塔西尔</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　类型: 动作 / 科幻</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　上映日期: 2011-10-26(印度)</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　电影剧情描述一位父亲Sherhar是伦敦龙头电玩公司的程式设计师，為了打进儿子Prateek的酷炫世界，Sherhar创造出一个永远不会被打死的反派电玩角色Ra One;并按照自己的样子打造一个负责追捕Ra One的超级英雄G One。但随著游戏开始进行， 一切却渐渐失控走样，Ra One不仅逃出游戏页面来到现实世界，还大肆胡作非為;游戏製作团队这才知道事态严重，而唯一的解决之道，就只有想办法释放电玩中的英雄G One同样来到现实世界，并找到Ra One的致命关键弱点，一举击败他!原本关系疏离的父子俩人，将為了同一任务一起并肩作战，拯救地球;但难缠的Ra One会如此轻易的放过他们吗?...</p>
+<div style="padding: 0px; margin: 0px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 25px;">
+	<div style="padding: 0px; margin: 0px; text-align: center;">
+		<img alt="好看的印度科幻电影" border="0" height="376" src="http://www.chachaba.com/news/uploads/allimg/131008/3003_131008095418_1.jpg" style="padding: 0px; margin: 0px; border: 0px; clear: left; cursor: pointer;" width="300" /><br />
+		&nbsp;</div>
+</div>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	<strong style="padding: 0px; margin: 0px;">印度科幻电影四：《功夫小蝇》</strong></p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　主演: Nani / Samantha Ruth Prabhu / Sudeep</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　类型: 剧情 / 科幻 / 奇幻</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　上映日期: 2012-07-05</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　纳尼与邻楼的女孩宾都相爱，但他们从未对彼此述说衷肠，两人继续享受着心动的默恋。哪知一个大老板苏迪普也看上了她，这个看似腰缠万贯、有权有势的男人实则是个心狠手辣的黑帮老大。他用尽手段欲引诱宾都，但他发现宾都爱的是纳尼。</p>
+<div style="padding: 0px; margin: 0px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 25px;">
+	<div style="padding: 0px; margin: 0px; text-align: center;">
+		<img alt="好看的印度科幻电影" border="0" height="394" src="http://www.chachaba.com/news/uploads/allimg/131008/3003_131008095432_1.jpg" style="padding: 0px; margin: 0px; border: 0px; clear: left; cursor: pointer;" width="350" /></div>
+</div>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　苏迪普为了得到宾都，在一天晚上，将纳尼杀死。纳尼死时知道苏迪普为了宾都，告诉苏迪普，&ldquo;离宾都远点，否则，我杀了你&rdquo;!</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　死后的纳尼重生为一只苍蝇，开始对苏迪普报复。最后，宾都知道了纳尼的死因，也知道了眼前这只苍蝇便是纳尼。两人便联合起来。宾都将纳尼全副武装，对苏迪普实施轮番攻击，苏迪普为了防御这只苍蝇，费劲了精力。当他知道宾都在暗中帮助这只苍蝇后，将宾都抓来，试图将她和纳尼一起杀死。小小苍蝇的报复，结局会是怎样呢?</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　影片笑料不断，3D效果也很特别。利用苍蝇的眼睛来看一切。值得一看!</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	<strong style="padding: 0px; margin: 0px;">印度科幻电影五：《印度超人》</strong></p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　主演: Sharat Saxena / 朴雅卡&middot;乔普拉</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　类型: 动作 / 爱情 / 科幻 / 冒险</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　上映日期: 2006-06-23</p>
+<p style="padding: 0px; margin: 0px 0px 6px; font-size: 14px; line-height: 28px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif;">
+	　　《卡里什》讲述罗希特的儿子卡里沙的故事，卡里沙继承了父亲的所有超能力，甚至青出于蓝。然而在他印度田园诗一样的生活中，卡里沙并没有发现他的这些超能力，直到和心上人、一个电视记者一起去新加坡的时候遇见了一个疯狂科学家，他发明的一项技术将会永远地改变世界。卡里沙终于变身为超级英雄卡里什，阻止了科学家的阴谋。</p>
+<div style="padding: 0px; margin: 0px; color: rgb(43, 43, 43); font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 25px;">
+	<div style="padding: 0px; margin: 0px; text-align: center;">
+		<img alt="好看的印度科幻电影" border="0" height="301" src="http://www.chachaba.com/news/uploads/allimg/131008/3003_131008095451_1.jpg" style="padding: 0px; margin: 0px; border: 0px; clear: left; cursor: pointer;" width="492" /></div>
+</div>
+<br />
+  
+                </div>	
+                <div class="boxoff"> 
+                    <strong>------分隔线----------------------------</strong> 
+                </div>
+                <div class="handle">
+                   <div class="context">
+                        <ul>
+                            <li>上一篇：没有了 </li>
+                            <li>下一篇：没有了 </li>
+                        </ul>
+                    </div><!-- /context -->
+                    <div class="actbox">
+                        <ul>
+                            <li id="act-fav"><a href="/plus/stow.php?aid=23" target="_blank">收藏</a></li>
+                            <li id="act-err"><a href="/plus/erraddsave.php?aid=23&title=印度科幻电影五部倾情奉献" target="_blank">挑错</a></li>
+                            <li id="act-pnt"><a href="#" onClick="window.print();">打印</a></li>
+                        </ul>
+                    </div><!-- /actbox -->
+
+                </div><!-- /handle -->
+                <div class="likearticle">
+                    <p class="title">相关文章</p>
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <script language="javascript" type="text/javascript">getDigg(23);</script>
+                <!-- //AJAX评论区 -->
+                <!-- //主模板必须要引入/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <!-- <dt style="display:none;"> <strong>发表评论</strong> <span class="more"></span> </dt> -->
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="23" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small style="color:red;"><!-- 请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。 -->
+          请文明评论！多谢</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/templets/fangyafei/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/templets/fangyafei/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/templets/fangyafei/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"syntaxhighlight,dedepage","toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback"> 用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;width: 80px;"/>
+              <img src= "/include/vdimgck.php" id="validateimg" style="cursor:pointer;" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest" />
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox new-comment">
+    <dt> <strong>最新评论</strong> <span class="more"><a href="/plus/feedback.php?aid=23">进入详细评论页&gt;&gt;</a></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/images/loadinglit.gif' />客官请稍等，评论马上就来...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/plus/feedback_ajax.php?dopost=getlist&aid=23&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />我正在努力发送...</div>";
+		if(msg=='')
+		{
+			alert("评论要脚踏实地，不能为空哦！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("难道验证码丑的你都不想填了吗！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '23');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />我正在努力发送...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("难道验证码丑的你都不想填了吗！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '23');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+ 
+            </div><!-- left end -->
+            <div class="clear"></div>
+        </div>      	
+    </div>
+    
+    <!-- footer staret -->
+    <div class="footer">
+    <div class="foot">
+        <span> QQ:<a href="http://wpa.qq.com/msgrd?v=3&uin=1120309265&site=qq&menu=yes">1120309265</a> 备案号: 京ICP备14027612号  </span>
+        <script type="text/javascript">
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F526916c95057c21a41cd83e422400c2b' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+
+    </div>
+</div><!-- footer end -->
+<!-- 返回顶部和扫描二维码 -->
+<div id="elevator_item"> <a id="elevator" onclick="return false;" title="回到顶部"></a> <a class="qr"></a>
+  <div class="qr-popup"> <a class="code-link"> <img class="code" src="http://www.fangyafei.com/templets/fangyafei/images/qq.jpg"/> </a> <span>加他为QQ好友</span>
+    <div class="arr"></div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function() {
+	$(window).scroll(function(){
+		var scrolltop=$(this).scrollTop();		
+		if(scrolltop>=200){		
+			$("#elevator_item").show();
+		}else{
+			$("#elevator_item").hide();
+		}
+	});		
+	$("#elevator").click(function(){
+		$("html,body").animate({scrollTop: 0}, 500);	
+	});		
+	$(".qr").hover(function(){
+		$(".qr-popup").show();
+	},function(){
+		$(".qr-popup").hide();
+	});	
+});
+</script>
+</body>
+</html>

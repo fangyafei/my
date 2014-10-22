@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-23 16:33:28
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> 如何在windows下使用git及github仓库管理项目_房亚飞的个人网站</title>
+<meta name="keywords" content="如,何在,windows,下,使用,git,及,github" />
+<meta name="description" content="第一，下载并安装git 目前windows版本的git有几种实现，但我们选择msysgit发行版，这是目前做得 兼容性最好的 。 下载地址： http://code.google.com/p/msysgit/downloads/list 使用默认配置安装Git。这个不用多说，一路Next就可以，如果对各种选项不熟悉，建议使用默认配置，没问题的。 第二，创建github账号 什么是Git和GitHub Git The stupid content tracker, 傻瓜内容跟踪器，是一个由Li" />
+<link href="http://www.fangyafei.com/templets/fangyafei/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="http://www.fangyafei.com/templets/fangyafei/style/page.css" rel="stylesheet" media="screen" type="text/css" />
+
+<script language="javascript" type="text/javascript" src="http://www.fangyafei.com/include/dedeajax2.js"></script>
+<script type="text/javascript" src="http://www.fangyafei.com/templets/fangyafei/js/jquery-1.7.2.min.js"></script>
+<!-- <link href="http://www.fangyafei.com/include/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" media="screen" type="text/css" />
+<script language="javascript" type="text/javascript" src="http://www.fangyafei.com/include/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<script> SyntaxHighlighter.all() //执行代码高亮 </script> -->
+<script language="javascript" type="text/javascript" src="/include/ckeditor/plugins/syntaxhighlight/code.js" ></script>
+<link type="text/css" rel="stylesheet" href="/include/ckeditor/plugins/syntaxhighlight/styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="/include/ckeditor/plugins/syntaxhighlight/styles/shThemeDefault.css"/>
+<script type="text/javascript">
+SyntaxHighlighter.config.clipboardSwf = '/include/ckeditor/plugins/syntaxhighlight/scripts/clipboard.swf';
+SyntaxHighlighter.config.strings.expandSource = 'show source';
+SyntaxHighlighter.config.strings.viewSource = '源码';
+SyntaxHighlighter.config.strings.copyToClipboard = '复制';
+SyntaxHighlighter.config.strings.copyToClipboardConfirmation = '代码在你的剪贴板，快去粘贴吧！';
+SyntaxHighlighter.config.strings.print = '打印';
+SyntaxHighlighter.config.strings.help = '帮助';
+SyntaxHighlighter.config.strings.alert = '我爱学习网很高兴地告诉你：\n\n';
+SyntaxHighlighter.all();
+</script>
+<script language="javascript" type="text/javascript">
+    <!--
+    function CheckLogin(){
+          var taget_obj = document.getElementById('_ajax_feedback');
+          myajax = new DedeAjax(taget_obj,false,false,'','','');
+          myajax.SendGet2("/member/ajax_feedback.php");
+          DedeXHTTP = null;
+    }
+    function postBadGood(ftype,fid)
+    {
+        var taget_obj = document.getElementById(ftype+fid);
+        var saveid = GetCookie('badgoodid');
+        if(saveid != null)
+        {
+            var saveids = saveid.split(',');
+            var hasid = false;
+            saveid = '';
+            j = 1;
+            for(i=saveids.length-1;i>=0;i--)
+            {
+                if(saveids[i]==fid && hasid) continue;
+                else {
+                    if(saveids[i]==fid && !hasid) hasid = true;
+                    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                    j++;
+                    if(j==10 && hasid) break;
+                    if(j==9 && !hasid) break;
+                }
+            }
+            if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+            else saveid += ','+fid;
+            SetCookie('badgoodid',saveid,1);
+        }
+        else
+        {
+            SetCookie('badgoodid',fid,1);
+        }
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        myajax.SendGet2("/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+    }
+    function postDigg(ftype,aid)
+    {
+        var taget_obj = document.getElementById('newdigg');
+        var saveid = GetCookie('diggid');
+        if(saveid != null)
+        {
+            var saveids = saveid.split(',');
+            var hasid = false;
+            saveid = '';
+            j = 1;
+            for(i=saveids.length-1;i>=0;i--)
+            {
+                if(saveids[i]==aid && hasid) continue;
+                else {
+                    if(saveids[i]==aid && !hasid) hasid = true;
+                    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                    j++;
+                    if(j==20 && hasid) break;
+                    if(j==19 && !hasid) break;
+                }
+            }
+            if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+            else saveid += ','+aid;
+            SetCookie('diggid',saveid,1);
+        }
+        else
+        {
+            SetCookie('diggid',aid,1);
+        }
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        var url = "/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+        myajax.SendGet2(url);
+    }
+    function getDigg(aid)
+    {
+        var taget_obj = document.getElementById('newdigg');
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        myajax.SendGet2("/plus/digg_ajax.php?id="+aid);
+        DedeXHTTP = null;
+    }
+    -->
+</script>
+</head>
+<body>    
+    <div class="main">
+    
+        <!-- logo start -->
+        <div class="logo">
+    <div class="text">
+        <h1>房亚飞的个人网站</h1>
+    </div>
+    <div class="description">
+        <a href=http://www.fangyafei.com/ME>其实房亚飞是一名苦逼的php程序员，喜好睡觉，每天睡不醒的样子；喜欢跟志同道合的朋友出去游玩，但没太多时间；喜欢寻求刺激 . . .</a>
+    </div>
+</div><!-- logo end -->       
+        <!-- header start -->
+        <div class="header">
+    <ul>
+        <li><a href="http://www.fangyafei.com" >主页</a></li>
+        <!-- <li><a href='/BLOG/' class=
+            <li>
+            	<a href="http://www.fangyafei.com/pro/TOOLS/"  title="工具">工具</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/JL/"  title="交流">交流</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/ME/"  rel='dropmenu9' title="我">我</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/RL/"  title="万年历">万年历</a>
+            </li> 
+         -->
+		<li><a href='/BLOG/' class='active'>博客</a></li> 
+			<li>
+				<a href='http://www.fangyafei.com/pro/TOOLS/' >工具</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/JL/' >交流</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/ME/'  rel='dropmenu9'>我</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/RL/' >万年历</a> 
+			</li> 
+		
+        <!-- 
+                               <li><a href="http://www.fangyafei.com/BLOG/" title="博客">博客</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/TOOLS/" title="工具">工具</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/JL/" title="交流">交流</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/ME/" title="我">我</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/RL/" title="万年历">万年历</a></li> 
+                                -->           
+    </ul>
+</div><!-- header end -->
+<div class="header_top">  
+    <div class="center">  
+     	<div class="toplinks">
+     		<a href="http://www.fangyafei.com/plus/heightsearch.php">精确搜索</a>
+     		<a href="http://www.fangyafei.com/data/sitemap.html" target="_blank">网站地图</a>
+     		<a href="http://www.fangyafei.com/tags.php">TAG标签</a>
+     		<a href="http://www.fangyafei.com/data/rssmap.html" class="rss">RSS订阅</a>  
+     		<a href="http://www.fangyafei.com">返回首页</a>
+     	</div>
+    </div> 
+</div>
+
+
+        
+        
+        <div class="middle clear-all">
+            <div class="position">
+                <a href='http://www.fangyafei.com/'>主页</a> > <a href='/BLOG/'>博客</a> > <a href='/BLOG/KF/'>开发</a> > 
+            </div>
+            <div class="hr"></div>
+            <div class="left clear-width">
+                <div class="article-title">
+                    <h1>
+                        <a href="http://www.fangyafei.com/BLOG/KF/b-17.html" title=" 如何在windows下使用git及github仓库管理项目"> 如何在windows下使用git及github仓库管理项目</a>
+                    </h1>
+                </div>
+                <div class="article-info">
+                    <span>作者：admin</span>
+                    <span><a href="" title="进入博客分类-开发" target="_blank">开发</a></span>
+                    <span>Tags：</span>
+                    <span class="update">2014-06-13 09:54:16 </span>
+                    <span>来源：未知</span>
+                    <span>浏览：<script src="/plus/count.php?view=yes&aid=17&mid=1" type='text/javascript' language="javascript"></script></span>
+                </div>
+                <div class="content">
+                
+                    <p class="oldsource">
+                        原文地址：
+                        <a href="" target="_blank" rel="nofollow"></a>
+                    </p>
+                    <span style="font-family: Arial; font-size: 14px; line-height: 26px; color: rgb(255, 0, 0);"><strong>第一，下载并安装git</strong></span><br style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;" />
+<br style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;" />
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	目前windows版本的git有几种实现，但我们选择msysgit发行版，这是目前做得<strong>兼容性最好的</strong>。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	下载地址：<a href="http://code.google.com/p/msysgit/downloads/list" style="color: rgb(51, 102, 153); text-decoration: none;" target="_blank">http://code.google.com/p/msysgit/downloads/list</a></p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	使用默认配置安装Git。这个不用多说，一路Next就可以，如果对各种选项不熟悉，建议使用默认配置，没问题的。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<span style="color: rgb(255, 0, 0);"><strong>第二，创建github账号</strong></span></p>
+<h4 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<a name="t0" style="color: rgb(51, 102, 153);"></a>什么是Git和GitHub</h4>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<strong>Git</strong>&nbsp;&mdash;The stupid content tracker, 傻瓜内容跟踪器，是一个由Linux内核开发者Linus为了更好地管理Linux内核开发而创立的<strong>分布式版本控制软件</strong>。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<strong>GitHub&nbsp;</strong>&mdash; 学生做版本控制最讨厌的就是找服务器，配置太麻烦了。<strong>GitHub这个网站为每个用户提供服务器托管其Git代码库，免费空间为300M</strong>。注册GitHub后你就会有0.3G的免费空间，不过<strong>只能创建公开项目</strong>。</p>
+<h4 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<a name="t1" style="color: rgb(51, 102, 153);"></a>为什么不选CVS或SVN</h4>
+<ul style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<li>
+		Git提交/克隆/pull/push的速度更快</li>
+	<li>
+		Git的<strong>绝大多数操作都可以在本地完成，不需要频繁连接服务器</strong>。</li>
+</ul>
+<hr style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;" />
+<h4 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<a name="t2" style="color: rgb(51, 102, 153);"></a>注册GitHub账号</h4>
+<ul style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<li>
+		<span style="color: rgb(255, 0, 0);"><strong>GitHub网址在<a class="external external_icon" href="https://github.com/" style="color: rgb(51, 102, 153); text-decoration: none;" target="_blank">&nbsp;这里</a></strong></span></li>
+	<li>
+		点击上方导航条的<a class="external external_icon" href="https://github.com/plans" style="color: rgb(51, 102, 153); text-decoration: none;" target="_blank">Signup and Pricing</a>即可进入注册界面， 选择注册免费账户</li>
+</ul>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<a class="highslide-image" href="http://oncoding.in/wp-content/uploads/2011/10/9cccbccb8c60.jpg" style="color: rgb(51, 102, 153); text-decoration: none;" target="_blank"><img alt="注册" border="0" height="78" src="/uploads/allimg/140613/09530J196-0.jpg" style="border: 0px none; max-width: 100%; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px;" title="注册" width="546" /></a></p>
+<br style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;" />
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<ul style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<li>
+		<strong>GitHub选择的默认通信方式是SSH</strong>，所以要先在Git里面生成SHH Key，打开Git Bash在其中输入如下命令：</li>
+</ul>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<span style="color: rgb(255, 0, 0);"><strong>ssh-keygen -t rsa -C &quot;3sdfsf80@xinlang.com&quot;</strong></span></p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	之后会让你选择是否对存放SSH Key的文件夹进行加密，一般都不需要的。<strong>一路回车，就OK了。</strong></p>
+<ul style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<li>
+		在c盘，<strong>当前用户</strong>文件夹下，有个.ssh 文件夹，在里边 找到 id_rsa.pub文件，用记事本打开，复制其中的全部内容。</li>
+	<li>
+		登陆你的GitHub账户，依次点击<em>Account Settings</em>&nbsp;&gt;&nbsp;<em>SSH Public Keys</em>&nbsp;&gt;&nbsp;<em>Add another public key</em>，把id_rsa.pub中的内容拷贝进去 。</li>
+	<li>
+		至此，基本的设置已经完成了。</li>
+</ul>
+<span style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">成了。</span>
+<hr style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;" />
+<h4 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<a name="t3" style="color: rgb(51, 102, 153);"></a>测试你的Git</h4>
+<ul style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<li>
+		经过上述配置，<strong>你的Gti应该可以通过SSH连接GitHub服务器了，让我们来测试下</strong>，输入如下命令：</li>
+</ul>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<a class="highslide-image" href="http://oncoding.in/wp-content/uploads/2011/10/1.jpg" style="color: rgb(51, 102, 153); text-decoration: none;" target="_blank"><img alt="测试1" border="0" height="41" src="/uploads/allimg/140613/09530G032-1.jpg" style="border: 0px none; max-width: 100%; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; margin-right: auto; padding-top: 0px;" title="测试1" width="518" /></a></p>
+<ul style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<li>
+		会给你这样的提示：</li>
+</ul>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<a class="highslide-image" href="http://oncoding.in/wp-content/uploads/2011/10/2.jpg" style="color: rgb(51, 102, 153); text-decoration: none;" target="_blank"><img alt="测试2" border="0" height="84" src="/uploads/allimg/140613/09530K152-2.jpg" style="border: 0px none; max-width: 100%; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; margin-right: auto; padding-top: 0px;" title="测试2" width="525" /></a></p>
+<ul style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<li>
+		输入yes，会显示：</li>
+</ul>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<a class="highslide-image" href="http://oncoding.in/wp-content/uploads/2011/10/3.jpg" style="color: rgb(51, 102, 153); text-decoration: none;" target="_blank"><img alt="测试3" border="0" height="55" src="/uploads/allimg/140613/09530K448-3.jpg" style="border: 0px none; max-width: 100%; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; margin-right: auto; padding-top: 0px;" title="测试3" width="551" /></a></p>
+<ul style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<li>
+		到这里，说明你的SSH运转良好。</li>
+</ul>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	如果提示你的密钥不正确，那么你需要重新确认上一步的操作是否完整无误。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<strong><span style="color: rgb(255, 0, 0);">第三，建立本地git仓库</span></strong></p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	首先，git要求使用者必须提供自己的身份标识，为此我们需要在git bash中执行以下命令：<br />
+	<br />
+	<strong>git config --global user.name&nbsp; &#39;aa.Tessst&#39;<br />
+	git config --global user.email&nbsp; fsc@sina.com</strong><br />
+	<br />
+	其次，选择git仓库目录<br />
+	<br />
+	我们<strong>假设将git仓库目录放在D盘的OPENSource目录下</strong>，可以通过在git bash中执行以下命令完成：<br />
+	<br />
+	cd /d<br />
+	mkdir OPENSource<br />
+	<br />
+	注：git bash支持大多linux bash终端命令，你可以自己尝试更多终端操作。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	最后，建立项目并初始化git仓库<br />
+	<br />
+	我们的第一个项目是一个使用Python语言将XML文件转换成Python字典，通过执行以下命令完成此步骤：<br />
+	<br />
+	mkdir Python-XML2Dict<br />
+	cd Python-XML2Dict<br />
+	<strong>git init<br />
+	<br />
+	执行此操作后，git将在Python-XML2Dict目录下创建一个隐藏目录（.git），这个目录就是git用来管理软件版本的仓库。</strong><br />
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<span style="color: rgb(255, 0, 0);"><strong>第四，使用git管理项目</strong></span></p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;&nbsp;&nbsp;&nbsp; 此步 和 在linux 上 使用 git 的 方法一样，具体参考 我的 其他 博文！</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<span style="color: rgb(255, 0, 0);"><strong>第五，将项目提交到github管理，<a href="http://blog.csdn.net/wh_19910525/article/details/7438183" style="color: rgb(51, 102, 153); text-decoration: none;" target="_blank">gitpush</a></strong></span></p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	如果&nbsp;<strong style="background-color: rgb(255, 255, 51);">第二步 测试无错</strong>，那么 经过 以下两步 就可以将本地的文件提交到github仓库了。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	1、登录GitHub后，你可以在右上边靠中那里找到一个按钮&ldquo;creat a New Repository&rdquo;，点击过后，<strong>填入项目名称</strong>、说明等 过后就可以创建了，然后会出现一个提示页面，记下类似<strong style="background-color: rgb(255, 255, 153);">&nbsp; git@github.com:XXX/XXX.git</strong>&nbsp;的地址，这个就是你这个项目的地址了。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	2、</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<pre style="white-space: pre-wrap; word-wrap: break-word; color: rgb(51, 51, 51); margin-top: 0px; margin-bottom: 9px; padding: 8.5px; border: 1px solid rgb(204, 204, 204); line-height: 18px; font-family: Menlo, Monaco, 'Courier New', monospace; word-break: break-all; background-color: rgb(245, 245, 245);">
+<strong><span class="lineno">1</span> <span style="color: rgb(102, 0, 204);">git remote add origin git@github.com:XXX/XXX.git</span>
+<span class="lineno">2</span> <span style="color: rgb(51, 0, 153);">git push -u origin maste</span>r //把本地 master 分支 推送到 服务器的master分支上，如果服务器没有此分支，就 新建 此分支。这也是 在服务器上新建分支的一种方法</strong></pre>
+<br style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;" />
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	这个<code style="margin: 0px; padding: 3px 4px; border: 1px solid rgb(225, 225, 232); font-size: 12px; line-height: 1; font-family: Menlo, Monaco, 'Courier New', monospace; color: rgb(221, 17, 68); background-color: rgb(247, 247, 249);">git@github.com:XXX/XXX.git</code>就是上面创建项目是生成的地址。现在打开你的项目网址，你就可以发现你的代码已经展示出来了。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<span style="color: rgb(255, 0, 0);"><strong>第六，直接 用 git pull 将项目 从 github 上 同步 下来</strong></span></p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	有两种方法：</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<strong>1、当git clone之后，直接git pull它会自动匹配一个正确的remote url</strong></p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	是因为在config文件中配置了以下内容：</p>
+<div class="cnblogs_code" style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<pre style="white-space: pre-wrap; word-wrap: break-word;">
+<span style="color: rgb(0, 128, 128);">1</span> <span style="color: rgb(0, 0, 0);">[branch </span><span style="color: rgb(128, 0, 0);">&quot;</span><span style="color: rgb(128, 0, 0);">master</span><span style="color: rgb(128, 0, 0);">&quot;</span><span style="color: rgb(0, 0, 0);">]
+</span><span style="color: rgb(0, 128, 128);">2</span> <span style="color: rgb(0, 0, 0);">    remote </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> origin
+</span><span style="color: rgb(0, 128, 128);">3</span> <span style="color: rgb(0, 0, 0);">    merge </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> refs</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">heads</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">master</span></pre>
+</div>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	表明：</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	1.git处于master这个branch下时，默认的remote就是origin；</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	2.当在master这个brach下，使用指定remote和merge的git pull时，使用默认的remote和merge。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<strong>2、但是对于自己建的项目</strong>，<strong>并没有这块内容，需要自己配置</strong>。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<div class="cnblogs_code" style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<pre style="white-space: pre-wrap; word-wrap: break-word;">
+<span style="color: rgb(0, 128, 128);">1</span> <span style="color: rgb(0, 0, 0);">git remote add </span><span style="color: rgb(0, 0, 0);">-</span><span style="color: rgb(0, 0, 0);">f origin login@git.sv.gnu.org:</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">srv</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">git</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">project.git  //若是 执行过 第五步，那么 这一句 就 不用了
+</span><span style="color: rgb(0, 128, 128);">2</span> <span style="color: rgb(0, 0, 0);">git config branch.master.remote origin  //这一步 设置： 把 master 分支上 的 默认服务器地址 设为 origin指向的地址 
+</span><span style="color: rgb(0, 128, 128);">3</span> <span style="color: rgb(0, 0, 0);">git config branch.master.merge refs</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">heads</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">master</span><span style="color: rgb(0, 128, 128);">&nbsp;</span> <span style="color: rgb(0, 0, 0);">&nbsp;//这一步 设置：如果当前分支是 master 分支，那么 git pull之后，直接 把 &ldquo;从 origin 下载 下来的 code合并到 master分支上&ldquo;
+</span>
+或者加上--global选项，对于全部项目都使用该配置。
+</pre>
+</div>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	建议：用第二种 方法，因为 如果 是 git clone的 项目，当 执行 git push 时，因为<strong>&nbsp;在 git&nbsp; config里 url&nbsp; 是 只读方式</strong></p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	[remote &quot;origin&quot;]<br />
+	&nbsp;&nbsp; &nbsp;fetch = +refs/heads/*:refs/remotes/origin/*<br />
+	&nbsp;&nbsp;<span style="color: rgb(255, 0, 0);"><strong>&nbsp;&nbsp;url = git://github.com/xxx/xxx.git</strong></span><br />
+	//<strong><span style="color: rgb(153, 51, 153);">git@github.com:XXX/XXX.git 这才是 读写方式</span></strong><br />
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	---------------------------------</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	如果提交了敏感信息，比如代码中设置的自己的密码什么的忘删除就上传上去了怎么办？</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	有两个方法：</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	1、重新修改本地代码，然后提交到服务器（覆盖），</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	2、直接登录 github 删除之前的项目。删除项目需要在GitHub网站上右上方找到<strong>admin</strong>按钮，进去后右边最下面有个删除的按钮，这样就可以删除了。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	--------------------------</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	若是一个项目就托管在 GitHub 上。你可以把它的 URL 分享给每位对此项目感兴趣的人。本例的 URL 是<code>http://github.com/testinguser/iphone_project</code>。而在项目页面的摘要部分，你会发现有两个 Git URL 地址，见 右图：</p>
+<center style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	<img alt="" src="/uploads/allimg/140613/09530K108-4.png" style="border: none; max-width: 100%;" /></center>
+<br style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;" />
+<span style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">&nbsp; 右图的 摘要中的公共 URL 和私有 URL</span>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	&nbsp;</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	Public Clone URL 是一个公开的，只读的 Git URL，任何人都可以通过它克隆该项目。可以随意散播这个 URL，比如发布到个人网站之类的地方等等。</p>
+<p style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px; line-height: 26px;">
+	Your Clone URL 是一个基于 SSH 协议的可读可写 URL，只有使用与上传的 SSH 公钥对应的密钥来连接时，才能通过它进行读写操作。其他用户访问该项目页面时只能看到之前那个公共的 URL，看不到这个私有的 URL</p>
+  
+                </div>	
+                <div class="boxoff"> 
+                    <strong>------分隔线----------------------------</strong> 
+                </div>
+                <div class="handle">
+                   <div class="context">
+                        <ul>
+                            <li>上一篇：<a href='/BLOG/KF/b-4.html'>织梦dedecms获取当前页面URL地址的调用方法</a> </li>
+                            <li>下一篇：<a href='/BLOG/KF/b-22.html'>程序员必须知道的10大基础实用算法及其讲解</a> </li>
+                        </ul>
+                    </div><!-- /context -->
+                    <div class="actbox">
+                        <ul>
+                            <li id="act-fav"><a href="/plus/stow.php?aid=17" target="_blank">收藏</a></li>
+                            <li id="act-err"><a href="/plus/erraddsave.php?aid=17&title= 如何在windows下使用git及github仓库管理项目" target="_blank">挑错</a></li>
+                            <li id="act-pnt"><a href="#" onClick="window.print();">打印</a></li>
+                        </ul>
+                    </div><!-- /actbox -->
+
+                </div><!-- /handle -->
+                <div class="likearticle">
+                    <p class="title">相关文章</p>
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <script language="javascript" type="text/javascript">getDigg(17);</script>
+                <!-- //AJAX评论区 -->
+                <!-- //主模板必须要引入/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <!-- <dt style="display:none;"> <strong>发表评论</strong> <span class="more"></span> </dt> -->
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="17" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small style="color:red;"><!-- 请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。 -->
+          请文明评论！多谢</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/templets/fangyafei/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/templets/fangyafei/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/templets/fangyafei/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"syntaxhighlight,dedepage","toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback"> 用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;width: 80px;"/>
+              <img src= "/include/vdimgck.php" id="validateimg" style="cursor:pointer;" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest" />
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox new-comment">
+    <dt> <strong>最新评论</strong> <span class="more"><a href="/plus/feedback.php?aid=17">进入详细评论页&gt;&gt;</a></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/images/loadinglit.gif' />客官请稍等，评论马上就来...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/plus/feedback_ajax.php?dopost=getlist&aid=17&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />我正在努力发送...</div>";
+		if(msg=='')
+		{
+			alert("评论要脚踏实地，不能为空哦！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("难道验证码丑的你都不想填了吗！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '17');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />我正在努力发送...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("难道验证码丑的你都不想填了吗！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '17');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+ 
+            </div><!-- left end -->
+            <div class="clear"></div>
+        </div>      	
+    </div>
+    
+    <!-- footer staret -->
+    <div class="footer">
+    <div class="foot">
+        <span> QQ:<a href="http://wpa.qq.com/msgrd?v=3&uin=1120309265&site=qq&menu=yes">1120309265</a> 备案号: 京ICP备14027612号  </span>
+        <script type="text/javascript">
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F526916c95057c21a41cd83e422400c2b' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+
+    </div>
+</div><!-- footer end -->
+<!-- 返回顶部和扫描二维码 -->
+<div id="elevator_item"> <a id="elevator" onclick="return false;" title="回到顶部"></a> <a class="qr"></a>
+  <div class="qr-popup"> <a class="code-link"> <img class="code" src="http://www.fangyafei.com/templets/fangyafei/images/qq.jpg"/> </a> <span>加他为QQ好友</span>
+    <div class="arr"></div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function() {
+	$(window).scroll(function(){
+		var scrolltop=$(this).scrollTop();		
+		if(scrolltop>=200){		
+			$("#elevator_item").show();
+		}else{
+			$("#elevator_item").hide();
+		}
+	});		
+	$("#elevator").click(function(){
+		$("html,body").animate({scrollTop: 0}, 500);	
+	});		
+	$(".qr").hover(function(){
+		$(".qr-popup").show();
+	},function(){
+		$(".qr-popup").hide();
+	});	
+});
+</script>
+</body>
+</html>

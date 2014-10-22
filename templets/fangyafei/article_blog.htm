@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-23 16:33:28
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.title /}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/page.css" rel="stylesheet" media="screen" type="text/css" />
+
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost}{dede:global.cfg_cmsurl/}/include/dedeajax2.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/js/jquery-1.7.2.min.js"></script>
+<!-- <link href="{dede:global.cfg_basehost/}/include/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" media="screen" type="text/css" />
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_basehost/}/include/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<script> SyntaxHighlighter.all() //执行代码高亮 </script> -->
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_cmsurl/}/include/ckeditor/plugins/syntaxhighlight/code.js" ></script>
+<link type="text/css" rel="stylesheet" href="{dede:global.cfg_cmsurl/}/include/ckeditor/plugins/syntaxhighlight/styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="{dede:global.cfg_cmsurl/}/include/ckeditor/plugins/syntaxhighlight/styles/shThemeDefault.css"/>
+<script type="text/javascript">
+SyntaxHighlighter.config.clipboardSwf = '{dede:global.cfg_cmsurl/}/include/ckeditor/plugins/syntaxhighlight/scripts/clipboard.swf';
+SyntaxHighlighter.config.strings.expandSource = 'show source';
+SyntaxHighlighter.config.strings.viewSource = '源码';
+SyntaxHighlighter.config.strings.copyToClipboard = '复制';
+SyntaxHighlighter.config.strings.copyToClipboardConfirmation = '代码在你的剪贴板，快去粘贴吧！';
+SyntaxHighlighter.config.strings.print = '打印';
+SyntaxHighlighter.config.strings.help = '帮助';
+SyntaxHighlighter.config.strings.alert = '我爱学习网很高兴地告诉你：\n\n';
+SyntaxHighlighter.all();
+</script>
+<script language="javascript" type="text/javascript">
+    <!--
+    function CheckLogin(){
+          var taget_obj = document.getElementById('_ajax_feedback');
+          myajax = new DedeAjax(taget_obj,false,false,'','','');
+          myajax.SendGet2("{dede:global.cfg_cmsurl/}/member/ajax_feedback.php");
+          DedeXHTTP = null;
+    }
+    function postBadGood(ftype,fid)
+    {
+        var taget_obj = document.getElementById(ftype+fid);
+        var saveid = GetCookie('badgoodid');
+        if(saveid != null)
+        {
+            var saveids = saveid.split(',');
+            var hasid = false;
+            saveid = '';
+            j = 1;
+            for(i=saveids.length-1;i>=0;i--)
+            {
+                if(saveids[i]==fid && hasid) continue;
+                else {
+                    if(saveids[i]==fid && !hasid) hasid = true;
+                    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                    j++;
+                    if(j==10 && hasid) break;
+                    if(j==9 && !hasid) break;
+                }
+            }
+            if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+            else saveid += ','+fid;
+            SetCookie('badgoodid',saveid,1);
+        }
+        else
+        {
+            SetCookie('badgoodid',fid,1);
+        }
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        myajax.SendGet2("{dede:field name='phpurl'/}/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+    }
+    function postDigg(ftype,aid)
+    {
+        var taget_obj = document.getElementById('newdigg');
+        var saveid = GetCookie('diggid');
+        if(saveid != null)
+        {
+            var saveids = saveid.split(',');
+            var hasid = false;
+            saveid = '';
+            j = 1;
+            for(i=saveids.length-1;i>=0;i--)
+            {
+                if(saveids[i]==aid && hasid) continue;
+                else {
+                    if(saveids[i]==aid && !hasid) hasid = true;
+                    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                    j++;
+                    if(j==20 && hasid) break;
+                    if(j==19 && !hasid) break;
+                }
+            }
+            if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+            else saveid += ','+aid;
+            SetCookie('diggid',saveid,1);
+        }
+        else
+        {
+            SetCookie('diggid',aid,1);
+        }
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        var url = "{dede:global.cfg_phpurl/}/digg_ajax.php?action="+ftype+"&id="+aid;
+        myajax.SendGet2(url);
+    }
+    function getDigg(aid)
+    {
+        var taget_obj = document.getElementById('newdigg');
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        myajax.SendGet2("{dede:global.cfg_phpurl/}/digg_ajax.php?id="+aid);
+        DedeXHTTP = null;
+    }
+    -->
+</script>
+</head>
+<body>    
+    <div class="main">
+    {dede:likearticle row='' titlelen='' infolen=''}
+        <a href='[field:arcurl/]'>[field:title/]</a>
+    {/dede:likearticle}
+        <!-- logo start -->
+        {dede:include file="logo.htm"/}       
+        <!-- header start -->
+        {dede:include file="head.htm"/}
+
+        
+        
+        <div class="middle clear-all">
+            <div class="position">
+                {dede:field.position/}
+            </div>
+            <div class="hr"></div>
+            <div class="left clear-width">
+                <div class="article-title">
+                    <h1>
+                        <a href="{dede:global.cfg_basehost/}{dede:field.arcurl/}" title="{dede:field.title/}">{dede:field.title/}</a>
+                    </h1>
+                </div>
+                <div class="article-info">
+                    <span>作者：{dede:field.writer/}</span>
+                    <span><a href="{dede:field.typeurl/}" title="进入博客分类-{dede:field.typename/}" target="_blank">{dede:field.typename/}</a></span>
+                    <span>Tags：{dede:field.id function=GetTags_list('@me')/}</span>
+                    <span class="update">{dede:field.pubdate function="GetDateTimeMK(@me)"/} </span>
+                    <span>来源：{dede:field.source/}</span>
+                    <span>浏览：<script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></span>
+                </div>
+                <div class="content">
+                
+                    <p class="oldsource">
+                        原文地址：
+                        <a href="{dede:field.oldsource/}" target="_blank" rel="nofollow">{dede:field.oldsource/}</a>
+                    </p>
+                    {dede:field.body/}  
+                </div>	
+                <div class="boxoff"> 
+                    <strong>------分隔线----------------------------</strong> 
+                </div>
+                <div class="handle">
+                   <div class="context">
+                        <ul>
+                            <li>{dede:prenext get='pre'/}</li>
+                            <li>{dede:prenext get='next'/}</li>
+                        </ul>
+                    </div><!-- /context -->
+                    <div class="actbox">
+                        <ul>
+                            <li id="act-fav"><a href="{dede:field name='phpurl'/}/stow.php?aid={dede:field.id/}" target="_blank">收藏</a></li>
+                            <li id="act-err"><a href="{dede:field name='phpurl'/}/erraddsave.php?aid={dede:field.id/}&title={dede:field.title/}" target="_blank">挑错</a></li>
+                            <li id="act-pnt"><a href="#" onClick="window.print();">打印</a></li>
+                        </ul>
+                    </div><!-- /actbox -->
+
+                </div><!-- /handle -->
+                <div class="likearticle">
+                    <p class="title">相关文章</p>
+                    <ul>
+                        {dede:likearticle row=12  titlelen=34  typeid=1  }
+                        <li>
+                            <a href="[field:global.cfg_basehost/][field:arcurl/]">[field:title/]</a>
+                        </li>
+                        {/dede:likearticle}
+                    </ul>
+                </div>
+                <script language="javascript" type="text/javascript">getDigg({dede:field.id/});</script>
+                <!-- //AJAX评论区 -->
+                {dede:include file='ajaxfeedback.htm' /} 
+            </div><!-- left end -->
+            <div class="clear"></div>
+        </div>      	
+    </div>
+    
+    <!-- footer staret -->
+    {dede:include file='footer.htm' /}
+</body>
+</html>

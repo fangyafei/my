@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+<channel>
+<title>感悟心得</title>
+<link>http://www.fangyafei.com/BLOG/GW/</link>
+<description>博客 / 感悟心得</description>
+<language>zh-cn</language>
+<generator><![CDATA[&lt;a href=http://www.fangyafei.com/ME&gt;其实房亚飞是一名苦逼的php程序员，喜好睡觉，每天睡不醒的样子；喜欢跟志同道合的朋友出去游玩，但没太多时间；喜欢寻求刺激 . . .&lt;/a&gt;]]></generator>
+<webmaster>desdev@vip.qq.com</webmaster>
+<item>
+    <title><![CDATA[程序员应该明白]]></title>
+    <link>http://www.fangyafei.com/BLOG/GW/b-27.html</link>
+    <description><![CDATA[初出茅庐的你带着仍残留墨香的毕业证书踏上工作岗位，马上就被书上没写的规则和各种繁杂的日常事务来了个下马威。这样的故事实在是司空见惯，编程工作也不例外。 没有几个学生能 100% 为自己的第一份真正的工作做好准备。如果你不想成为其中之一，请学学以下这 10 项无需手把手指导就能学会的基本技能： 1、版本控制系统（VCS） VCS 也许是计算机课程最大]]></description>
+    <pubDate>2014-06-18</pubDate>
+    <category>感悟心得</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+<item>
+    <title><![CDATA[不懂技术的人不要对懂技术的人说这很容易实现]]></title>
+    <link>http://www.fangyafei.com/plus/view.php?aid=18</link>
+    <description><![CDATA[这个网站相当简单，所有你需要做的就是完成X，Y，Z。你看起来应该是技术很好，所以，我相信，你不需要花费太多时间就能把它搭建起来。 我时不时的就会收到这样的Email。写这些邮件的人几乎都是跟技术不沾边的人，或正在研究他们的第一个产品。起初，当听到人们这样的话，我总是十分的恼怒。他们在跟谁辩论软件开发所需要的时间？但后来我意识到，即使]]></description>
+    <pubDate>2014-06-17</pubDate>
+    <category>感悟心得</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+
+</channel>
+</rss>

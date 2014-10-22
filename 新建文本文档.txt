@@ -1,0 +1,5 @@
+产品型号:b064产品名:fangyafei[试用]订单号:100089[虚拟主机]价格:5备注:您申请的虚拟主机已经开设成功。
+同时系统分配您一个二级域名,您现在可以通过fangyafei.gotoip2.com立即投入使用。
+上传地址:fangyafei.gotoftp2.com  FTP帐号:fangyafei
+您可以给您的虚拟主机绑定自己的域名，请将绑定的域名做别名(Cname)至: fangyafei.gotoip2.com. 
+好了,现在就进入您的虚拟主机的控制面板看看吧.

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-23 16:49:41
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.seotitle /}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/page.css" rel="stylesheet" media="screen" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/js/jquery-1.7.2.min.js"></script>
+</head>
+<body>    
+    <div class="main">
+        <!-- header start -->
+        {dede:include file="head.htm"/}
+
+        <!-- logo start -->
+        {dede:include file="logo.htm"/}
+        <div class="hr4"></div>
+        <div class="position">
+            {dede:field.position/}
+            <div class="hr"></div>
+        </div>
+        
+        <div class="middle">
+            <div class="left">
+                {dede:list pagesize='10' titlelen='80'}
+                <!-- list start -->
+                <div class="list">
+                    <div class="detail clear-width">
+                        <div class="title">
+                            <h2>
+                                <a href="[field:global.cfg_basehost/][field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a>
+                            </h2>
+                        </div>
+                        <div class="des">
+                            [field:description/]
+                            <a href="[field:global.cfg_basehost/][field:arcurl/]" class="go-on-ready" title="[field:title/]" target="_blank"><详细介绍></a>
+                        </div>
+                        <div class="title">
+                            <p class="info clear-text-align margin-top10">
+                                <span>作者：[field:writer/]</span>
+                                <span><a href="[field:typeurl/]">[field:typename/]</a></span>
+                                <span>Tags：[field:id function=GetTags_list('@me')/]</span>
+                                <span>浏览量：[field:click/]</span>
+                                <!-- <span>下载次数：[field:disdls/]</span> -->
+                                <span>[field:pubdate function="GetDateTimeMK(@me)"/]
+                                <span class="float-right" style="padding-right:70px;"><!--不看详细介绍了-->
+								 <a href="[field:arcurl/]" class="go-on-ready" target="_blank"><进入下载页面></a> 
+                                <!-- [field:softlinks/] -->
+                                </span>                                
+                            </p>
+                        </div>
+                    </div>
+                </div><!-- list end -->	
+                {/dede:list}
+                <div class="dede_pages">
+                    <ul class="pagelist">
+                     {dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5"/}
+                    </ul>
+                </div><!-- /pages -->		
+            </div><!-- left end -->
+
+            <!-- right start -->
+            {dede:include file='right.htm' /}
+            <div class="clear"></div>
+        </div>      	
+    </div>
+
+    <!-- footer staret -->
+    {dede:include file='footer.htm' /}
+</body>
+</html>

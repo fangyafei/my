@@ -1,0 +1,1 @@
+<li><h3><a href="[field:global.cfg_basehost/][field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]...</a></h3></li>

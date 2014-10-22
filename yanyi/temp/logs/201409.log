@@ -1,0 +1,1 @@
+Mon, 01 Sep 2014 13:28:17 +0800	[2]mt_rand() [<a href='function.mt-rand'>function.mt-rand</a>]: max(0) is smaller than min(1)	\includes\libraries\captcha.lib.php	274

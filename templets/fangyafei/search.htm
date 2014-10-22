@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>搜索页_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+</head>
+<body style="padding-top:30px;">
+	<div class="main" style="margin-top:0px;">
+		{dede:include file="head.htm"/}
+
+		<div class="resultbar">搜索 
+			<strong class="fc_03c">{dede:global name='keyword' function='RemoveXSS(@me)'/}</strong> 的结果 
+		</div>
+		<div class="result_content">	
+			<div class="sidebar">
+		        {dede:include file="right.htm"/}
+		    </div>
+		<div class="resultlist">
+			<ul>
+             {dede:list perpage='20'}
+				<li>      				
+					<h3><a href="[field:arcurl/]" target="_blank">[field:title/]</a></h3>
+                    <p>[field:description/]...</p>
+					<span>
+					    <a href="[field:arcurl/]">[field:global.cfg_basehost/][field:arcurl/]</a>
+						<small>分类：</small><a href="[field:typeurl/]" target="_blank">[field:typename/]</a>
+						<small>点击：</small>[field:click/]
+						<small>日期：</small>[field:stime/]
+					</span>
+				</li>
+			{/dede:list}
+			</ul>
+			<div class="fl dede_pages">
+			<ul class="pagelist">
+            	{dede:pagelist listsize='4'/}  
+			</ul>
+		</div><!-- /pages -->
+		</div><!-- /listbox -->
+</div>
+
+</div>
+{dede:include file="footer.htm"/}
+<!-- /footer -->
+</body>
+</html>

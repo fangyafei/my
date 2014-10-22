@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-23 16:33:28
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.seotitle /}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/js/common.js"></script>
+</head>
+<body>    
+    <div class="main">
+               
+        <!-- header start -->
+        {dede:include file="head.htm"/}
+        <!-- logo start -->
+        {dede:include file="logo.htm"/}        
+        
+        <div class="middle clear-all">
+            <div class="position">
+                {dede:field.position/}                
+            </div>
+            <div class="hr"></div>
+            <div class="b-category">
+                    <span href="javascript:;" target="_blank" class="b-category-active">作品</span>
+                    <span href="javascript:;">其它作品</span>
+                </div>
+            <div class="left clear-width">
+                <div class="content">
+                    {dede:sql sql='select * from fang_addonarticle where aid=14'}
+                        [field:body/]
+                    {/dede:sql}
+                </div>
+                <div class="content" style="display:none;">
+                  {dede:field.content/}   
+                </div>                
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $(".content a").attr('target','_blank');
+                    });
+                </script>
+            </div><!-- left end -->
+            <script type="text/javascript">
+                UE.util.tab({
+                    eType : 'click',
+                    tabEleParent : $('.b-category'),
+                    contEleParent :$('.left'),
+                    css : 'b-category-active',
+                    callback : function(opt){
+                        UE.log(opt);
+                    }
+                });         
+            </script>
+            <div class="clear"></div>
+        </div>      	
+    </div>
+
+    <!-- footer staret -->
+    {dede:include file='footer.htm' /}
+</body>
+</html>

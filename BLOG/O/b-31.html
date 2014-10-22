@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-23 16:33:28
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>关于程序猿的笑话_房亚飞的个人网站</title>
+<meta name="keywords" content="程序员,程序猿,笑话" />
+<meta name="description" content="有关笑话 1、新春对联上联：为系统而生，为框架而死，为debug奋斗一辈子下联：吃符号的亏，上大小写的当，最后死在需求上！横批：杯具程序员。 2、为什么程序员总是分不清万圣节和圣诞节？因为 Oct 31 == Dec 25。 3、男：我是程序猿。 女：哦，程先生，你好。 男：客气了，叫我序猿就好~ 4、我是你的什么，你是我的程序猿，啊？？原来我是猴子啊， 酱 紫 我就" />
+<link href="http://www.fangyafei.com/templets/fangyafei/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="http://www.fangyafei.com/templets/fangyafei/style/page.css" rel="stylesheet" media="screen" type="text/css" />
+
+<script language="javascript" type="text/javascript" src="http://www.fangyafei.com/include/dedeajax2.js"></script>
+<script type="text/javascript" src="http://www.fangyafei.com/templets/fangyafei/js/jquery-1.7.2.min.js"></script>
+<!-- <link href="http://www.fangyafei.com/include/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" media="screen" type="text/css" />
+<script language="javascript" type="text/javascript" src="http://www.fangyafei.com/include/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<script> SyntaxHighlighter.all() //执行代码高亮 </script> -->
+<script language="javascript" type="text/javascript" src="/include/ckeditor/plugins/syntaxhighlight/code.js" ></script>
+<link type="text/css" rel="stylesheet" href="/include/ckeditor/plugins/syntaxhighlight/styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="/include/ckeditor/plugins/syntaxhighlight/styles/shThemeDefault.css"/>
+<script type="text/javascript">
+SyntaxHighlighter.config.clipboardSwf = '/include/ckeditor/plugins/syntaxhighlight/scripts/clipboard.swf';
+SyntaxHighlighter.config.strings.expandSource = 'show source';
+SyntaxHighlighter.config.strings.viewSource = '源码';
+SyntaxHighlighter.config.strings.copyToClipboard = '复制';
+SyntaxHighlighter.config.strings.copyToClipboardConfirmation = '代码在你的剪贴板，快去粘贴吧！';
+SyntaxHighlighter.config.strings.print = '打印';
+SyntaxHighlighter.config.strings.help = '帮助';
+SyntaxHighlighter.config.strings.alert = '我爱学习网很高兴地告诉你：\n\n';
+SyntaxHighlighter.all();
+</script>
+<script language="javascript" type="text/javascript">
+    <!--
+    function CheckLogin(){
+          var taget_obj = document.getElementById('_ajax_feedback');
+          myajax = new DedeAjax(taget_obj,false,false,'','','');
+          myajax.SendGet2("/member/ajax_feedback.php");
+          DedeXHTTP = null;
+    }
+    function postBadGood(ftype,fid)
+    {
+        var taget_obj = document.getElementById(ftype+fid);
+        var saveid = GetCookie('badgoodid');
+        if(saveid != null)
+        {
+            var saveids = saveid.split(',');
+            var hasid = false;
+            saveid = '';
+            j = 1;
+            for(i=saveids.length-1;i>=0;i--)
+            {
+                if(saveids[i]==fid && hasid) continue;
+                else {
+                    if(saveids[i]==fid && !hasid) hasid = true;
+                    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                    j++;
+                    if(j==10 && hasid) break;
+                    if(j==9 && !hasid) break;
+                }
+            }
+            if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+            else saveid += ','+fid;
+            SetCookie('badgoodid',saveid,1);
+        }
+        else
+        {
+            SetCookie('badgoodid',fid,1);
+        }
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        myajax.SendGet2("/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+    }
+    function postDigg(ftype,aid)
+    {
+        var taget_obj = document.getElementById('newdigg');
+        var saveid = GetCookie('diggid');
+        if(saveid != null)
+        {
+            var saveids = saveid.split(',');
+            var hasid = false;
+            saveid = '';
+            j = 1;
+            for(i=saveids.length-1;i>=0;i--)
+            {
+                if(saveids[i]==aid && hasid) continue;
+                else {
+                    if(saveids[i]==aid && !hasid) hasid = true;
+                    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                    j++;
+                    if(j==20 && hasid) break;
+                    if(j==19 && !hasid) break;
+                }
+            }
+            if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+            else saveid += ','+aid;
+            SetCookie('diggid',saveid,1);
+        }
+        else
+        {
+            SetCookie('diggid',aid,1);
+        }
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        var url = "/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+        myajax.SendGet2(url);
+    }
+    function getDigg(aid)
+    {
+        var taget_obj = document.getElementById('newdigg');
+        myajax = new DedeAjax(taget_obj,false,false,'','','');
+        myajax.SendGet2("/plus/digg_ajax.php?id="+aid);
+        DedeXHTTP = null;
+    }
+    -->
+</script>
+</head>
+<body>    
+    <div class="main">
+    
+        <!-- logo start -->
+        <div class="logo">
+    <div class="text">
+        <h1>房亚飞的个人网站</h1>
+    </div>
+    <div class="description">
+        <a href=http://www.fangyafei.com/ME>其实房亚飞是一名苦逼的php程序员，喜好睡觉，每天睡不醒的样子；喜欢跟志同道合的朋友出去游玩，但没太多时间；喜欢寻求刺激 . . .</a>
+    </div>
+</div><!-- logo end -->       
+        <!-- header start -->
+        <div class="header">
+    <ul>
+        <li><a href="http://www.fangyafei.com" >主页</a></li>
+        <!-- <li><a href='/BLOG/' class=
+            <li>
+            	<a href="http://www.fangyafei.com/pro/TOOLS/"  title="工具">工具</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/JL/"  title="交流">交流</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/ME/"  rel='dropmenu9' title="我">我</a>
+            </li> 
+        
+            <li>
+            	<a href="http://www.fangyafei.com/pro/RL/"  title="万年历">万年历</a>
+            </li> 
+         -->
+		<li><a href='/BLOG/' class='active'>博客</a></li> 
+			<li>
+				<a href='http://www.fangyafei.com/pro/TOOLS/' >工具</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/JL/' >交流</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/ME/'  rel='dropmenu9'>我</a> 
+			</li> 
+		 
+			<li>
+				<a href='http://www.fangyafei.com/pro/RL/' >万年历</a> 
+			</li> 
+		
+        <!-- 
+                               <li><a href="http://www.fangyafei.com/BLOG/" title="博客">博客</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/TOOLS/" title="工具">工具</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/JL/" title="交流">交流</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/ME/" title="我">我</a></li> 
+                               
+                               <li><a href="http://www.fangyafei.com/pro/RL/" title="万年历">万年历</a></li> 
+                                -->           
+    </ul>
+</div><!-- header end -->
+<div class="header_top">  
+    <div class="center">  
+     	<div class="toplinks">
+     		<a href="http://www.fangyafei.com/plus/heightsearch.php">精确搜索</a>
+     		<a href="http://www.fangyafei.com/data/sitemap.html" target="_blank">网站地图</a>
+     		<a href="http://www.fangyafei.com/tags.php">TAG标签</a>
+     		<a href="http://www.fangyafei.com/data/rssmap.html" class="rss">RSS订阅</a>  
+     		<a href="http://www.fangyafei.com">返回首页</a>
+     	</div>
+    </div> 
+</div>
+
+
+        
+        
+        <div class="middle clear-all">
+            <div class="position">
+                <a href='http://www.fangyafei.com/'>主页</a> > <a href='/BLOG/'>博客</a> > <a href='/BLOG/O/'>自娱自乐</a> > 
+            </div>
+            <div class="hr"></div>
+            <div class="left clear-width">
+                <div class="article-title">
+                    <h1>
+                        <a href="http://www.fangyafei.com/BLOG/O/b-31.html" title="关于程序猿的笑话">关于程序猿的笑话</a>
+                    </h1>
+                </div>
+                <div class="article-info">
+                    <span>作者：Aslan</span>
+                    <span><a href="" title="进入博客分类-自娱自乐" target="_blank">自娱自乐</a></span>
+                    <span>Tags：<a href='/tags.php?/%E7%A8%8B%E5%BA%8F%E5%91%98/'>程序员</a> <a href='/tags.php?/%E7%A8%8B%E5%BA%8F%E7%8C%BF/'>程序猿</a> <a href='/tags.php?/%E7%AC%91%E8%AF%9D/'>笑话</a> </span>
+                    <span class="update">2014-07-30 10:06:07 </span>
+                    <span>来源：百度百科</span>
+                    <span>浏览：<script src="/plus/count.php?view=yes&aid=31&mid=1" type='text/javascript' language="javascript"></script></span>
+                </div>
+                <div class="content">
+                
+                    <p class="oldsource">
+                        原文地址：
+                        <a href="" target="_blank" rel="nofollow"></a>
+                    </p>
+                    <h2 class="headline-1" style="margin: 35px 0px 15px -30px; padding: 0px; font-size: 24px; font-family: 微软雅黑, 黑体, Verdana; font-weight: 500; line-height: 22px; clear: both; zoom: 1; overflow: hidden; position: relative; color: rgb(0, 0, 0); background-image: url(http://baike.bdimg.com/static/lemma/view/img/titleEditLine.png); background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+	<span class="headline-content" style="line-height: 24px; display: block; float: left; padding: 0px 8px 0px 5px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp; &nbsp; &nbsp;有关笑话</span></h2>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	1、新春对联上联：为系统而生，为框架而死，为debug奋斗一辈子下联：吃符号的亏，上大小写的当，最后死在需求上！横批：杯具程序员。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	2、为什么程序员总是分不清万圣节和圣诞节？因为 Oct 31 == Dec 25。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	3、男：我是程序猿。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	女：哦，程先生，你好。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	男：客气了，叫我序猿就好~</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	4、我是你的什么，你是我的程序猿，啊？？原来我是猴子啊，<font color="#136ec2">酱</font><font color="#136ec2">紫</font>我就可以让你耍coding啦！！！</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	5、怎么使用面向对象的方式变得富有？继承。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	6、一男子在路边一根接着一根地抽烟。一个女士走过来对他说：&ldquo;嘿，你不知道你是在慢性自杀吗？注意看看烟盒上的警告信息。&rdquo;&ldquo;没关系&rdquo;，男子悠然自得地又吸了一口：&ldquo;我是个<a href="http://baike.baidu.com/view/2321426.htm" style="text-decoration: none; color: rgb(19, 110, 194);" target="_blank">程序猿</a>。&rdquo;&ldquo;嗯？这和你是程序猿有什么关系？&rdquo;&ldquo;我们一点儿也不在乎<font color="#136ec2">警</font><font color="#136ec2">告</font>（warning），我们只在乎错误（error）。&rdquo;</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	7、问：程序员最讨厌康熙的哪个儿子。答：胤禩。因为他是八阿哥（bug）。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	8、换一个电灯泡需要几个程序员？一个也不要，这是硬件问题</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	9、危楼高百尺，手可写代码；<font color="#136ec2">举头望</font><font color="#136ec2">明月</font>，低头写代码；王师北定中原日，家祭无忘写代码；</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	10、孤帆远影碧空尽，唯见代码眼前流</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	11、声卡凄切，对电脑晚，检查初歇。 项目需求无绪，可恨处，邮件催发。 执手相看代码，竟无语凝噎。 念去去千行代码，眼皮沉沉电脑破。 多情自古源代码，更那堪，冷落情人节，今宵酒醒何处。电脑旁，晓风残月，此去经年，爱情硬是形同虚设。 便纵有千般无奈，更与何人说？</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	12、你只看到我在不停的忙碌，却没看到我奋进的热情，你有你的朝九晚五，我有我的通宵达旦，我可怜你体会不了执行出结果的那种成就感。Code是注定痛苦的旅行...</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	13、一句话证明你爱过！ 《我不愿让你一个人写代码&hellip;&hellip;》 不服来辩</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	14、我是一个搬砖狂，搬砖本领强。。总有一天心血来潮，倒在砖头旁。。。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	15、漫道coding无悔不，养家糊口故。年华虚度，青春总被bug误。望断吊丝路，有女神，不得护。 默忆少年游无度，心怀天下牧。流年暗促，胸中豪情不堪负。风华又起时，不忍顾，年娇处。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	16、一个MD5函数吃惊地指着另一个MD5函数说：&ldquo;你的哈希结果为什么和我的不一样？&rdquo; 那个MD5函数骄傲地说，&ldquo;我喂自己袋盐。&rdquo;</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	17、昨天，一位男生向他心仪的程旭媛妹纸送了一份写的16万行代码的程序。这份程序包括嵌入式、JAVA、C++等多种语言，内容主要是回忆两人在一起做的课设和借景抒怀。他将其做成Repo并commit到Github上，取名《我不愿让你一个人写代码》。妹纸十分感动，然后拒绝了他</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	18、bug众多，今胜昨，回调长似秋千索。溢出栈，抛异常，码至凌晨，咽泪妆欢，难难难！</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	19、少年投身IT行，老来无伴又何妨。擦肩美女不屑看，三千码友在身旁。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	20、夜半话凄凉，转眼泪千行，日日工期紧，亦为重构忙。久易无定论，命悬需求方，四顾前途路，一步三踉跄。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	21、白发三千丈，coding泪两行，不识加班累，只缘bug狂。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	22、幸得进某康，IT放两旁，闲来把码敲，余音仍绕梁。码农压力大，愿君更健康！</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	23、少时狂发编程想，无畏赴身IT行。纵使荣华未可近，我自coding又何妨！</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	24、 夜夜搞项目，敲码三四点。郁郁无头绪，哽咽等天亮。放手搏一搏，程序全报错。妹子人家牵，bug自己查。方法属性类，一个都不会。左右不是人，猿来程序员。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	25、无数假期渺茫茫，夜三更，bug调出千百行；香烟一半，犹如饥渴似疯狂。抬起头颅，细数窗前星光，人生历历何等惆怅；思量思量，日何已出，为何希望依久不晴朗！</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	26、 年少太轻狂，误入IT行。白发森森立，两眼直茫茫。语言数十种，无一称擅长。三十而立时，无房单身郎。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	27、年少不经事，埋头编程忙。 指键铿锵落，不及细思量。 bug千百个，comment无一行。 休言敏捷易，做来断人肠。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	28、在那山的这边海的那边有一群苦逼的程序员</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	他们老实又胹腆 　他们聪明又木钱 　他们一天到晚坐在那里熬夜写软件 　饿了就咬一口方便面～～ 　哦苦逼的程序员 　哦苦逼的程序员 　只要一改需求他们就要重新搞一遍 　但是期限只剩下两天</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	29、十年生死两茫茫，写程序，到天亮。 千行代码，Bug何处藏。 纵使上线又怎样，朝令改，夕断肠。 领导每天新想法，天天改，日日忙。 相顾无言，惟有泪千行。 每晚灯火阑珊处，程序员，又加班,工作狂~</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	30、写字楼里写字间，写字间里程序员； 程序人员写程序，又拿程序换酒钱。 酒醒只在网上坐，酒醉还来网下眠； 酒醉酒醒日复日，网上网下年复年。 但愿老死电脑间，不愿鞠躬老板前； 奔驰宝马贵者趣，公交自行程序员。 别人笑我忒疯癫，我笑自己命太贱； 不见满街漂亮妹，哪个归得程序员。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	31、当代的程序员，其实就是远古的巫师。他们通过一些普通人不理解的符号和语法，与某个世界的自然法则相沟通，进而实现人类需要的奇迹</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	32、程序员问禅师：&ldquo;我和在一起 7年的女友分手了，程序员是否诸多和爱情无缘?&rdquo;</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	禅师笑而不语，把程序员带到正在比赛的球场。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	程序员大悟：&ldquo;大师的意思是否是说：爱情的意义就像一场比赛，只要过程努力过，结果如何并不重要?&rdquo;</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	大师闭上眼睛道：&ldquo;你分手关我球事?&rdquo;</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	33、当世界末日还有5分钟就要到来的时候</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	程序员: 让我们在这最后的时刻作些什么吧!</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	女友: 那好,让我们在做最后一次吧!</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	程序员: 那剩下的4分50秒做什么啊?</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	34、一个程序员骑着一个很漂亮的自行车到了公司，另一个程序员看到了他，问到，&ldquo;你是从哪搞到的这么漂亮的车的？&rdquo;</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	骑车的那个程序员说，&ldquo;我刚从那边过来，有一个漂亮的姑娘骑着这个车过来，并停在我跟前，把衣服全脱了，然后对我说，&lsquo;你想要什么都可以&rsquo;&rdquo;。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	另一个程序员马上说到，&ldquo;你绝对做了一个正确的选择，因为那姑娘的衣服你并不一定穿得了&rdquo;。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	35、我也不知道为什么，我一说我是搞PHP的，她们就把灯都灭了。</div>
+<div class="para" style="color: rgb(51, 51, 51); margin: 15px 0px 5px; text-indent: 2em; line-height: 24px; font-family: arial, 宋体, sans-serif; font-size: 14px;">
+	36、年底了项目很着急，那天下午我在路边就开始调试code，边上一个乞丐我看着很可怜就给了他一块钱，他一直就在边上看着我，我也没理，半天后，他指着我的一行代码说，多写了一个逗号......</div>
+  
+                </div>	
+                <div class="boxoff"> 
+                    <strong>------分隔线----------------------------</strong> 
+                </div>
+                <div class="handle">
+                   <div class="context">
+                        <ul>
+                            <li>上一篇：没有了 </li>
+                            <li>下一篇：没有了 </li>
+                        </ul>
+                    </div><!-- /context -->
+                    <div class="actbox">
+                        <ul>
+                            <li id="act-fav"><a href="/plus/stow.php?aid=31" target="_blank">收藏</a></li>
+                            <li id="act-err"><a href="/plus/erraddsave.php?aid=31&title=关于程序猿的笑话" target="_blank">挑错</a></li>
+                            <li id="act-pnt"><a href="#" onClick="window.print();">打印</a></li>
+                        </ul>
+                    </div><!-- /actbox -->
+
+                </div><!-- /handle -->
+                <div class="likearticle">
+                    <p class="title">相关文章</p>
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <script language="javascript" type="text/javascript">getDigg(31);</script>
+                <!-- //AJAX评论区 -->
+                <!-- //主模板必须要引入/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <!-- <dt style="display:none;"> <strong>发表评论</strong> <span class="more"></span> </dt> -->
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="31" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small style="color:red;"><!-- 请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。 -->
+          请文明评论！多谢</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/templets/fangyafei/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/templets/fangyafei/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/templets/fangyafei/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"syntaxhighlight,dedepage","toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback"> 用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;width: 80px;"/>
+              <img src= "/include/vdimgck.php" id="validateimg" style="cursor:pointer;" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest" />
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox new-comment">
+    <dt> <strong>最新评论</strong> <span class="more"><a href="/plus/feedback.php?aid=31">进入详细评论页&gt;&gt;</a></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/images/loadinglit.gif' />客官请稍等，评论马上就来...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/plus/feedback_ajax.php?dopost=getlist&aid=31&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />我正在努力发送...</div>";
+		if(msg=='')
+		{
+			alert("评论要脚踏实地，不能为空哦！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("难道验证码丑的你都不想填了吗！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '31');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />我正在努力发送...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("难道验证码丑的你都不想填了吗！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '31');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+ 
+            </div><!-- left end -->
+            <div class="clear"></div>
+        </div>      	
+    </div>
+    
+    <!-- footer staret -->
+    <div class="footer">
+    <div class="foot">
+        <span> QQ:<a href="http://wpa.qq.com/msgrd?v=3&uin=1120309265&site=qq&menu=yes">1120309265</a> 备案号: 京ICP备14027612号  </span>
+        <script type="text/javascript">
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F526916c95057c21a41cd83e422400c2b' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+
+    </div>
+</div><!-- footer end -->
+<!-- 返回顶部和扫描二维码 -->
+<div id="elevator_item"> <a id="elevator" onclick="return false;" title="回到顶部"></a> <a class="qr"></a>
+  <div class="qr-popup"> <a class="code-link"> <img class="code" src="http://www.fangyafei.com/templets/fangyafei/images/qq.jpg"/> </a> <span>加他为QQ好友</span>
+    <div class="arr"></div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function() {
+	$(window).scroll(function(){
+		var scrolltop=$(this).scrollTop();		
+		if(scrolltop>=200){		
+			$("#elevator_item").show();
+		}else{
+			$("#elevator_item").hide();
+		}
+	});		
+	$("#elevator").click(function(){
+		$("html,body").animate({scrollTop: 0}, 500);	
+	});		
+	$(".qr").hover(function(){
+		$(".qr-popup").show();
+	},function(){
+		$(".qr-popup").hide();
+	});	
+});
+</script>
+</body>
+</html>

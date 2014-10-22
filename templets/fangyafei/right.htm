@@ -1,0 +1,102 @@
+<div class="right">
+    <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+        <div class="side">
+           <input type="hidden" name="kwtype" value="0" />
+           <input name="q" type="text" class="search-keyword" id="search-keyword" value="在此搜索..." onfocus="if(this.value=='在此搜索...'){this.value='';}"  onblur="if(this.value==''){this.value='在此搜索...';}" />
+           <select name="searchtype" class="search-option" id="search-option">
+               <option value="title" selected='1'>搜索标题</option>
+               <option value="titlekeyword">模糊搜索</option>
+           </select>
+          <button type="submit" class="search-submit">搜索</button>
+        </div>
+    </form>
+    <!-- side end -->
+    <div class="side">
+        <div class="title">推荐文章</div>
+        <div class="content">
+            <ul>
+                <!-- <li><h3><a href="">从微信消息说起，聊聊移动互联网下...</a></h3></li> -->
+
+                {dede:arclist flag='c' titlelen=42 row=10}
+                    <li>
+                        <a href="[field:arcurl/]">[field:title/]</a> 
+                        <span><small>人气:</small>[field:click/]</span>
+                    </li>
+                {/dede:arclist}
+            </ul>
+        </div>
+        <p class="hr"></p>
+    </div><!-- side end -->
+    <!-- 热门标签 -->
+    <div class="side">
+        <div class="title">热门标签</div>
+        <div class="content">              
+            {dede:tag row='30' getall='1' sort='month' currentstyle="<dl><a href='~link~' class='active'>~tag~</a></dl>"}
+                <dl><a href='[field:link/]'>[field:tag /]</a></dl>
+            {/dede:tag}
+        </div>
+        <p class="hr"></p>
+    </div><!-- 热门标签 结束 -->
+    <!-- 热门文章 -->
+    <div class="side">
+        <div class="title">热门文章</div>
+        <div class="content">
+            <ul>                
+                {dede:arclist row=10 orderby=click}
+                    <li>
+                        <a href="[field:arcurl/]">[field:title/]</a> 
+                        <span><small>人气:</small>[field:click/]</span>
+                    </li>
+                {/dede:arclist}
+            </ul>
+        </div>
+        <p class="hr"></p>
+    </div><!-- 热门文章 结束 -->
+    <!-- 热门文章 -->
+    <div class="side">
+        <div class="title">博客分类</div>
+        <div class="content">
+            <ul>                
+                {dede:channel typeid=1 type='son'}
+                    <li>
+                        <a href="[field:typelink/]">[field:typename/]</a>
+                    </li>
+                {/dede:channel}
+            </ul>
+        </div>
+        <p class="hr"></p>
+    </div><!-- 热门文章 结束 -->
+    <!-- count start -->
+    <div class="count">
+        <div class="count-n">
+            <p>博客数：
+                {dede:type typeid=1}
+                    [field:id function="GetTotalArc(@me)" /]
+                {/dede:type}
+            </p>
+            <p>博客分类：
+                {dede:sql sql="select count(id) as 'b-typenum' from fang_arctype where topid=1 "}
+                    [field:b-typenum/]
+                {/dede:sql}
+            </p>
+            <p>工具：
+                {dede:type typeid=4}
+                    [field:id function="GetTotalArc(@me)" /]
+                {/dede:type}</p>
+        </div>
+    </div><!-- count start -->
+    <!-- 友好网站 start -->
+    <div class="side">
+        <div class="count-n">
+            <div class="title clear-padding">
+                友好网站
+                <!-- <a href="{dede:global.cfg_basehost/}/plus/flink_add.php" style="display:none;">互换链接</a> -->
+            </div>
+            
+            {dede:flinktype type="dedecms"}
+                <p>{dede:flink/}</p> 
+            {/dede:flinktype}
+
+        </div>
+    </div><!-- 友好网站 start -->
+</div><!-- right end -->

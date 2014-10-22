@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+<channel>
+<title>经验之谈</title>
+<link>http://www.fangyafei.com/BLOG/JY/</link>
+<description>博客 / 经验之谈</description>
+<language>zh-cn</language>
+<generator><![CDATA[&lt;a href=http://www.fangyafei.com/ME&gt;其实房亚飞是一名苦逼的php程序员，喜好睡觉，每天睡不醒的样子；喜欢跟志同道合的朋友出去游玩，但没太多时间；喜欢寻求刺激 . . .&lt;/a&gt;]]></generator>
+<webmaster>desdev@vip.qq.com</webmaster>
+<item>
+    <title><![CDATA[织梦全局变量]]></title>
+    <link>http://www.fangyafei.com/BLOG/JY/b-9.html</link>
+    <description><![CDATA[{dede:php} if($refObj-Fields[id] == 0){ echo class=active; } {/dede:php} $refObj-Fields是一个数组，包含当前页面的基本上所有的信息]]></description>
+    <pubDate>2014-05-28</pubDate>
+    <category>经验之谈</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+<item>
+    <title><![CDATA[备案的一些问题]]></title>
+    <link>http://www.fangyafei.com/BLOG/JY/b-8.html</link>
+    <description><![CDATA[关于备案，我折腾过不少次，淘宝买快速备案、个人正规备案、备案新增接入、网站新增、企业备案。 在我会建站和seo之前，我经常在手机上百度关于网站备案到底该怎么弄，百度了一大堆了看的迷迷糊糊的，到最后还是只能硬着头皮去摸索，摸索过程中也走了不少弯路， 因为很多站长或者seo新手都会或多或少的需要接触到网站备案，为了大家少走弯路，今天给]]></description>
+    <pubDate>2014-05-27</pubDate>
+    <category>经验之谈</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+
+</channel>
+</rss>

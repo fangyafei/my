@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-22 17:30:23
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:global.cfg_keywords function='str_replace(",","_",@me)/}_{dede:global.cfg_webname/}</title>
+<meta name="description" content="房亚飞的个人网站，房亚飞是php程序员，专注于php开发，发表一些技术文章，分享最新的技术信息" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/js/common.js"></script>
+<meta name="baidu_union_verify" content="bf29fad60dfaf540d1cfa301f0c9ac91">
+<meta name="360-site-verification" content="7324965bda48a5dfa379ec7e61ad755c" />
+</head>
+<body>
+    <div class="main">
+        <!-- header start -->
+        {dede:include file="head.htm"/}
+        
+        <!-- logo start -->
+        {dede:include file="logo.htm"/}
+        <div class="hr4"></div> 
+        <div class="b-category">
+            <a href="javascript:;" target="_blank" class="b-category-active">全部博客</a>
+            {dede:channel typeid=1 type='son'}
+            <a href="javascript:;" target="_blank">[field:typename/]</a>
+            {/dede:channel}
+        </div>     
+        <div class="middle">
+            <div class="left">
+                <div>
+                    {dede:arclist row=20 titlelen='80' typeid=1}
+                    <!-- list start -->
+                    <div class="list">
+                        <div class="p-time" id="[field:id/]">
+                            <p class="day">[field:pubdate function="strftime('%d','@me')"/] </p>
+                            <p class="month">[field:pubdate function="strftime('%m','@me')"/]</p>
+                            <p class="year" id="year-[field:id/]">[field:pubdate function="strftime('%Y','@me')"/]</p>
+                            <script type="text/javascript">
+                            $(document).ready(function(){
+                                $("#[field:id/]").mouseover(function(){
+                                    $("#[field:id/] .day").css('display','none');
+                                    //$("#[field:id/] .month").css('display','none');
+                                    $("#[field:id/] .year").css('display','block');
+                                });
+                                $("#[field:id/]").mouseout(function(){
+                                    $("#[field:id/] .day").css('display','block');
+                                    $("#[field:id/] .month").css('display','block');
+                                    $("#[field:id/] .year").css('display','none');
+                                });
+                            });
+                            </script>
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                <h2>
+                                    <a href="[field:global.cfg_basehost/][field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a>
+                                </h2>
+                            </div>
+                            <div class="des">
+                                [field:description/]<br/>
+                                <a href="[field:global.cfg_basehost/][field:arcurl/]" class="go-on-ready" title="[field:title/]" target="_blank"><我还想看></a>
+                            </div>
+                            <div class="title">
+                                <p class="info clear-text-align margin-top10">
+                                    <span>作者：[field:writer/]</span>
+                                    <span><a href="[field:typeurl/]">[field:typename/]</a></span>
+                                    <span>Tags：[field:id function=GetTags_list('@me')/]</span>
+                                    <span>浏览量：[field:click/]</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- list end -->
+                    <!-- list start -->
+                    {/dede:arclist}
+                </div>
+                <div style="display:none;">
+                    {dede:arclist row=20 titlelen='80' typeid=10}
+                    <!-- list start -->
+                    <div class="list">
+                        <div class="p-time" id="[field:id/]">
+                            <p class="day">[field:pubdate function="strftime('%d','@me')"/] </p>
+                            <p class="month">[field:pubdate function="strftime('%m','@me')"/]</p>
+                            <p class="year" id="year-[field:id/]">[field:pubdate function="strftime('%Y','@me')"/]</p>
+                            <script type="text/javascript">
+                            $(document).ready(function(){
+                                $("#[field:id/]").mouseover(function(){
+                                    $("#[field:id/] .day").css('display','none');
+                                    //$("#[field:id/] .month").css('display','none');
+                                    $("#[field:id/] .year").css('display','block');
+                                });
+                                $("#[field:id/]").mouseout(function(){
+                                    $("#[field:id/] .day").css('display','block');
+                                    $("#[field:id/] .month").css('display','block');
+                                    $("#[field:id/] .year").css('display','none');
+                                });
+                            });
+                            </script>
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                <h2>
+                                    <a href="[field:global.cfg_basehost/][field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a>
+                                </h2>
+                            </div>
+                            <div class="des">
+                                [field:description/]<br/>
+                                <a href="[field:global.cfg_basehost/][field:arcurl/]" class="go-on-ready" title="[field:title/]" target="_blank"><我还想看></a>
+                            </div>
+                            <div class="title">
+                                <p class="info clear-text-align margin-top10">
+                                    <span>作者：[field:writer/]</span>
+                                    <span><a href="[field:typeurl/]">[field:typename/]</a></span>
+                                    <span>Tags：[field:id function=GetTags_list('@me')/]</span>
+                                    <span>浏览量：[field:click/]</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- list end -->
+                    <!-- list start -->
+                    {/dede:arclist}
+                </div>
+                
+                <div style="display:none;">
+                    {dede:arclist row=20 titlelen='80' typeid=11}
+                    <!-- list start -->
+                    <div class="list">
+                        <div class="p-time" id="[field:id/]">
+                            <p class="day">[field:pubdate function="strftime('%d','@me')"/] </p>
+                            <p class="month">[field:pubdate function="strftime('%m','@me')"/]</p>
+                            <p class="year" id="year-[field:id/]">[field:pubdate function="strftime('%Y','@me')"/]</p>
+                            <script type="text/javascript">
+                            $(document).ready(function(){
+                                $("#[field:id/]").mouseover(function(){
+                                    $("#[field:id/] .day").css('display','none');
+                                    //$("#[field:id/] .month").css('display','none');
+                                    $("#[field:id/] .year").css('display','block');
+                                });
+                                $("#[field:id/]").mouseout(function(){
+                                    $("#[field:id/] .day").css('display','block');
+                                    $("#[field:id/] .month").css('display','block');
+                                    $("#[field:id/] .year").css('display','none');
+                                });
+                            });
+                            </script>
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                <h2>
+                                    <a href="[field:global.cfg_basehost/][field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a>
+                                </h2>
+                            </div>
+                            <div class="des">
+                                [field:description/]<br/>
+                                <a href="[field:global.cfg_basehost/][field:arcurl/]" class="go-on-ready" title="[field:title/]" target="_blank"><我还想看></a>
+                            </div>
+                            <div class="title">
+                                <p class="info clear-text-align margin-top10">
+                                    <span>作者：[field:writer/]</span>
+                                    <span><a href="[field:typeurl/]">[field:typename/]</a></span>
+                                    <span>Tags：[field:id function=GetTags_list('@me')/]</span>
+                                    <span>浏览量：[field:click/]</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- list end -->
+                    <!-- list start -->
+                    {/dede:arclist}
+                </div>
+                
+                <div style="display:none;">
+                    {dede:arclist row=20 titlelen='80' typeid=14}
+                    <!-- list start -->
+                    <div class="list">
+                        <div class="p-time" id="[field:id/]">
+                            <p class="day">[field:pubdate function="strftime('%d','@me')"/] </p>
+                            <p class="month">[field:pubdate function="strftime('%m','@me')"/]</p>
+                            <p class="year" id="year-[field:id/]">[field:pubdate function="strftime('%Y','@me')"/]</p>
+                            <script type="text/javascript">
+                            $(document).ready(function(){
+                                $("#[field:id/]").mouseover(function(){
+                                    $("#[field:id/] .day").css('display','none');
+                                    //$("#[field:id/] .month").css('display','none');
+                                    $("#[field:id/] .year").css('display','block');
+                                });
+                                $("#[field:id/]").mouseout(function(){
+                                    $("#[field:id/] .day").css('display','block');
+                                    $("#[field:id/] .month").css('display','block');
+                                    $("#[field:id/] .year").css('display','none');
+                                });
+                            });
+                            </script>
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                <h2>
+                                    <a href="[field:global.cfg_basehost/][field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a>
+                                </h2>
+                            </div>
+                            <div class="des">
+                                [field:description/]<br/>
+                                <a href="[field:global.cfg_basehost/][field:arcurl/]" class="go-on-ready" title="[field:title/]" target="_blank"><我还想看></a>
+                            </div>
+                            <div class="title">
+                                <p class="info clear-text-align margin-top10">
+                                    <span>作者：[field:writer/]</span>
+                                    <span><a href="[field:typeurl/]">[field:typename/]</a></span>
+                                    <span>Tags：[field:id function=GetTags_list('@me')/]</span>
+                                    <span>浏览量：[field:click/]</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- list end -->
+                    <!-- list start -->
+                    {/dede:arclist}
+                </div> 
+
+                <div style="display:none;">
+                    {dede:arclist row=20 titlelen='80' typeid=20}
+                    <!-- list start -->
+                    <div class="list">
+                        <div class="p-time" id="[field:id/]">
+                            <p class="day">[field:pubdate function="strftime('%d','@me')"/] </p>
+                            <p class="month">[field:pubdate function="strftime('%m','@me')"/]</p>
+                            <p class="year" id="year-[field:id/]">[field:pubdate function="strftime('%Y','@me')"/]</p>
+                            <script type="text/javascript">
+                            $(document).ready(function(){
+                                $("#[field:id/]").mouseover(function(){
+                                    $("#[field:id/] .day").css('display','none');
+                                    //$("#[field:id/] .month").css('display','none');
+                                    $("#[field:id/] .year").css('display','block');
+                                });
+                                $("#[field:id/]").mouseout(function(){
+                                    $("#[field:id/] .day").css('display','block');
+                                    $("#[field:id/] .month").css('display','block');
+                                    $("#[field:id/] .year").css('display','none');
+                                });
+                            });
+                            </script>
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                <h2>
+                                    <a href="[field:global.cfg_basehost/][field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a>
+                                </h2>
+                            </div>
+                            <div class="des">
+                                [field:description/]<br/>
+                                <a href="[field:global.cfg_basehost/][field:arcurl/]" class="go-on-ready" title="[field:title/]" target="_blank"><我还想看></a>
+                            </div>
+                            <div class="title">
+                                <p class="info clear-text-align margin-top10">
+                                    <span>作者：[field:writer/]</span>
+                                    <span><a href="[field:typeurl/]">[field:typename/]</a></span>
+                                    <span>Tags：[field:id function=GetTags_list('@me')/]</span>
+                                    <span>浏览量：[field:click/]</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- list end -->
+                    <!-- list start -->
+                    {/dede:arclist}
+                </div> 
+                <div style="display:none;">
+                    {dede:arclist row=20 titlelen='80' typeid=24}
+                    <!-- list start -->
+                    <div class="list">
+                        <div class="p-time" id="[field:id/]">
+                            <p class="day">[field:pubdate function="strftime('%d','@me')"/] </p>
+                            <p class="month">[field:pubdate function="strftime('%m','@me')"/]</p>
+                            <p class="year" id="year-[field:id/]">[field:pubdate function="strftime('%Y','@me')"/]</p>
+                            <script type="text/javascript">
+                            $(document).ready(function(){
+                                $("#[field:id/]").mouseover(function(){
+                                    $("#[field:id/] .day").css('display','none');
+                                    //$("#[field:id/] .month").css('display','none');
+                                    $("#[field:id/] .year").css('display','block');
+                                });
+                                $("#[field:id/]").mouseout(function(){
+                                    $("#[field:id/] .day").css('display','block');
+                                    $("#[field:id/] .month").css('display','block');
+                                    $("#[field:id/] .year").css('display','none');
+                                });
+                            });
+                            </script>
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                <h2>
+                                    <a href="[field:global.cfg_basehost/][field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a>
+                                </h2>
+                            </div>
+                            <div class="des">
+                                [field:description/]<br/>
+                                <a href="[field:global.cfg_basehost/][field:arcurl/]" class="go-on-ready" title="[field:title/]" target="_blank"><我还想看></a>
+                            </div>
+                            <div class="title">
+                                <p class="info clear-text-align margin-top10">
+                                    <span>作者：[field:writer/]</span>
+                                    <span><a href="[field:typeurl/]">[field:typename/]</a></span>
+                                    <span>Tags：[field:id function=GetTags_list('@me')/]</span>
+                                    <span>浏览量：[field:click/]</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- list end -->
+                    <!-- list start -->
+                    {/dede:arclist}
+                </div>             
+            </div><!-- left end -->
+            <script type="text/javascript">
+                UE.util.tab({
+                    eType : 'click',
+                    tabEleParent : $('.b-category'),
+                    contEleParent :$('.left'),
+                    css : 'b-category-active',
+                    callback : function(opt){
+                        UE.log(opt);
+                    }
+                });         
+            </script>
+
+            <!-- right start -->
+            {dede:include file='right.htm' /}            
+            <div class="clear"></div>
+        </div>      	
+    </div>
+
+    <!-- footer staret -->
+    {dede:include file='footer.htm' /}
+</body>
+</html>

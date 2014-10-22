@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-23 17:12:05
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.seotitle /}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/page.css" rel="stylesheet" media="screen" type="text/css" />
+</head>
+<body>    
+    <div class="main">
+        <!-- header start -->
+        {dede:include file="head.htm"/}
+
+        <!-- logo start -->
+        {dede:include file="logo.htm"/}
+        <div class="hr4"></div>
+        <div class="position">
+            {dede:field.position/}
+        </div>
+        <p class="hr"></p>
+        <div class="middle">
+            <div class="left clear-width">
+                {dede:list 'imgwidth'=218 pagesize=18}
+                <!-- list start -->
+                <div class="list float-left">
+                    <dl>
+                        <dt>
+                            <a href="[field:global.cfg_basehost/][field:arcurl/]" target="_blank" title="[field:title/]">
+                            [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<img src='{@me['litpic']}' />"); [/field:array]
+                        </dt>
+                        <dd><a href="[field:global.cfg_basehost/][field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a></dd>
+                    </dl>
+                </div><!-- list end -->
+                {/dede:list}
+                <div class="clear"></div>
+                <div class="dede_pages">
+                    <ul class="pagelist">
+                     {dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5"/}
+                    </ul>
+                </div><!-- /pages -->
+            </div><!-- left end -->
+            <div class="clear"></div>
+        </div>      	
+    </div>
+
+    <!-- footer staret -->
+    {dede:include file='footer.htm' /}
+</body>
+</html>

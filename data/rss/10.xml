@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+<channel>
+<title>开发</title>
+<link>http://www.fangyafei.com/BLOG/KF/</link>
+<description>博客 / 开发</description>
+<language>zh-cn</language>
+<generator><![CDATA[&lt;a href=http://www.fangyafei.com/ME&gt;其实房亚飞是一名苦逼的php程序员，喜好睡觉，每天睡不醒的样子；喜欢跟志同道合的朋友出去游玩，但没太多时间；喜欢寻求刺激 . . .&lt;/a&gt;]]></generator>
+<webmaster>desdev@vip.qq.com</webmaster>
+<item>
+    <title><![CDATA[使用 Ajax 向 PHP 传值]]></title>
+    <link>http://www.fangyafei.com/BLOG/KF/b-28.html</link>
+    <description><![CDATA[传值前的页面temp.html bodyscript type=text/javascript src=./jquery-1.7.2.min.js/script div id=msg/divform name=sent method=post action=输入页码： input type=text height=20 name=pg /input type=button value=Go onClick=saveUserInfo()/form script language=javascriptfunction saveUserInfo(){//获取接受返回信息层var msg = document.getElementById(msg);//获取表单对象和用户信息值var f = document.sent;var pg = f.pg.value;//var userAge = f.user_age.value;//]]></description>
+    <pubDate>2014-06-25</pubDate>
+    <category>开发</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+<item>
+    <title><![CDATA[程序员必须知道的10大基础实用算法及其讲解]]></title>
+    <link>http://www.fangyafei.com/BLOG/KF/b-22.html</link>
+    <description><![CDATA[算法一：快速排序算法 快速排序 是由东尼霍尔所发展的一种排序算法。在平均状况下，排序n个项目要 (nlogn)次比较。在最坏状况下则需要 (n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他 (nlogn)算法更快，因为它的内部循环（innerloop）可以在大部分的架构上很有效率地被实现出来。 快速排序使用分治法（Divideandconquer）策略来把一个串行（list）]]></description>
+    <pubDate>2014-06-18</pubDate>
+    <category>开发</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+<item>
+    <title><![CDATA[ 如何在windows下使用git及github仓库管理项目]]></title>
+    <link>http://www.fangyafei.com/BLOG/KF/b-17.html</link>
+    <description><![CDATA[第一，下载并安装git 目前windows版本的git有几种实现，但我们选择msysgit发行版，这是目前做得 兼容性最好的 。 下载地址： http://code.google.com/p/msysgit/downloads/list 使用默认配置安装Git。这个不用多说，一路Next就可以，如果对各种选项不熟悉，建议使用默认配置，没问题的。 第二，创建github账号 什么是Git和GitHub Git The stupid content tracker, 傻瓜内容跟踪器，是一个由Li]]></description>
+    <pubDate>2014-06-13</pubDate>
+    <category>开发</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+<item>
+    <title><![CDATA[织梦dedecms获取当前页面URL地址的调用方法]]></title>
+    <link>http://www.fangyafei.com/BLOG/KF/b-4.html</link>
+    <description><![CDATA[相信有不少站长想在文章发布页面直接调用出本片文章的地址，但是该怎么调用呢？可能很多站长都不清楚，今天我就给大家讲解一下 de de cms如何调用当前页面的URL地址。 其实这个方法，本身也是dedecms自带的一个全局函数，我们只是以 标 签 的形式将他在前台调用出来而已。具体 代 码 为： {dede:geturl runphp=yes} @me = GetCurUrl(); {/dede:geturl} 将上述代码插入到你需要显]]></description>
+    <pubDate>2014-05-27</pubDate>
+    <category>开发</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+<item>
+    <title><![CDATA[修改织梦5.7自动摘要字数长度限制]]></title>
+    <link>http://www.fangyafei.com/BLOG/KF/b-3.html</link>
+    <description><![CDATA[版本：织梦5.7正式版 目的：将织梦默认的自动摘要字数（250）修改成自定义的字数（2048） 1.打开dede\article_edit.php找到第113行 将其$description = cn_substrR($description,250); 改成$description = cn_substrR($description,2048); 2.打开dede\article_description_main.php找到第33行 将其if($dsize250) $dsize = 250; 改成if($dsize2048) $dsize = 2048; 3.进入数据库打开dede_sysconfig表找到varname字段的cfg_auot_description数据]]></description>
+    <pubDate>2014-05-26</pubDate>
+    <category>开发</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+
+</channel>
+</rss>

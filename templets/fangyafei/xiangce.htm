@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-23 16:33:28
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.seotitle /}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+
+
+<script type="text/javascript" src="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/tuji/swfobject.js"></script>
+<style type="text/css"> 
+    /* hide from ie on mac \*/
+    html {height: 100%;overflow: hidden;}    
+    #flashcontent {height: 100%;}
+    /* end hide */
+    body {height: 100%; margin: 0;padding: 0; background-color: #000000;color:#ffffff;font-family:sans-serif;font-size:40px;}
+    a { color:#cccccc;}
+</style>
+</head>
+<body>    
+    <p>
+        {dede:type typeid=9}
+        <a href="[field:typelink/]">返回[field:typename/]</a>
+        {/dede:type}
+    </p>
+    <div id="flashcontent">TiltViewer requires JavaScript and the latest Flash player. <a href="http://www.macromedia.com/go/getflashplayer/">Get Flash here.</a></div>
+    <script type="text/javascript">
+    
+        var fo = new SWFObject("{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/tuji/TiltViewer.swf", "viewer", "100%", "100%", "9.0.28", "#000000");            
+        
+        // TILTVIEWER CONFIGURATION OPTIONS
+        // To use an option, uncomment it by removing the "//" at the start of the line
+        // For a description of config options, go to: 
+        // http://www.airtightinteractive.com/projects/tiltviewer/config_options.html
+                                                            
+        //FLICKR GALLERY OPTIONS
+        // To use images from Flickr, uncomment this block
+        //fo.addVariable("useFlickr", "true");
+        //fo.addVariable("user_id", "48508968@N00");
+        //fo.addVariable("tags", "jump,smile");
+        //fo.addVariable("tag_mode", "all");
+        //fo.addVariable("showTakenByText", "true");            
+        
+        // XML GALLERY OPTIONS
+        // To use local images defined in an XML document, use this block       
+        fo.addVariable("useFlickr", "false");
+        fo.addVariable("xmlURL", "{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/tuji/gallery.xml");
+        fo.addVariable("maxJPGSize","1024");
+        
+        //GENERAL OPTIONS       
+        fo.addVariable("useReloadButton", "false");
+        fo.addVariable("columns", "5");
+        fo.addVariable("rows", "5");
+        //fo.addVariable("showFlipButton", "true");
+        //fo.addVariable("showLinkButton", "true");     
+        //fo.addVariable("linkLabel", "View image info");
+        //fo.addVariable("frameColor", "0xFF0000");
+        //fo.addVariable("backColor", "0xDDDDDD");
+        //fo.addVariable("bkgndInnerColor", "0xFF00FF");
+        //fo.addVariable("bkgndOuterColor", "0x0000FF");                
+        //fo.addVariable("langGoFull", "Go Fullscreen");
+        //fo.addVariable("langExitFull", "Exit Fullscreen");
+        //fo.addVariable("langAbout", "About");             
+        
+        // END TILTVIEWER CONFIGURATION OPTIONS
+        
+        fo.addParam("allowFullScreen","true");
+        fo.write("flashcontent");           
+    </script>
+</body>
+</html>

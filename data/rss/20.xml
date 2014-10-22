@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+<channel>
+<title>无关技术</title>
+<link>http://www.fangyafei.com/BLOG/N/</link>
+<description>博客 / 无关技术</description>
+<language>zh-cn</language>
+<generator><![CDATA[&lt;a href=http://www.fangyafei.com/ME&gt;其实房亚飞是一名苦逼的php程序员，喜好睡觉，每天睡不醒的样子；喜欢跟志同道合的朋友出去游玩，但没太多时间；喜欢寻求刺激 . . .&lt;/a&gt;]]></generator>
+<webmaster>desdev@vip.qq.com</webmaster>
+<item>
+    <title><![CDATA[程序猿名字解释]]></title>
+    <link>http://www.fangyafei.com/BLOG/N/cxy.html</link>
+    <description><![CDATA[名词解释 编辑 是一种近几十年来出现的新物种，是信息革命的产物，在行为和物种归类上我们也可称为 码字猴 。程序猿是 人类在科技研究上的一种新兴进化，拥有无与伦比的耐力、超越时代的智商、横穿社会的苦逼相和低于人类平均寿命的显著特点。 程序猿 是一种非常特殊的、可以从事程序开发、维护的动物。一般分为程序设计猿和程序编码猿，但两者的界限]]></description>
+    <pubDate>2014-07-30</pubDate>
+    <category>无关技术</category>
+    <author>Aslan</author>
+    <comments>百度百科</comments>
+</item>
+<item>
+    <title><![CDATA[程序员才有的十大烦恼]]></title>
+    <link>http://www.fangyafei.com/BLOG/N/b-26.html</link>
+    <description><![CDATA[10.注释只解释了how却没有解释why 入门级的编程课程通常会教育学生们写代码前先写注释、而且要尽量多注释。 这种教育的出发点是多注释肯定比少注释好、少注释肯定比没注释好。可不幸的是，很多的程序员把这当成了一种任务，对每一行代码都注释一下。 经过这样的注释，你否明白了这段代码是干什么的？的确，我也没明白。 问题就在于，虽然有大量的注释，]]></description>
+    <pubDate>2014-06-18</pubDate>
+    <category>无关技术</category>
+    <author>admin</author>
+    <comments>未知</comments>
+</item>
+<item>
+    <title><![CDATA[为生活可以忍，侮辱技术就不行？]]></title>
+    <link>http://www.fangyafei.com/BLOG/N/b-24.html</link>
+    <description><![CDATA[几年前追《叶问》，当我看到叶问2时就被洪金宝的一句话给震撼住了：为生活可以忍，侮辱中国武术就不行。 前段时间我也听到了类似一句话，是一个程序员朋友说的，这厮气鼓鼓的在QQ签名上写了一句话，后来被我转到微信朋友圈里了。这句话是：为生活可以忍，侮辱技术就不行。 于是我通过QQ，用脑残的表情跟他聊了一番（原谅我其实一直是一个很八卦而且好]]></description>
+    <pubDate>2014-06-18</pubDate>
+    <category>无关技术</category>
+    <author>Aslan</author>
+    <comments>eoe</comments>
+</item>
+
+</channel>
+</rss>

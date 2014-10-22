@@ -1,0 +1,23 @@
+<div class="header">
+    <ul>
+        <li><a href="{dede:global.cfg_basehost/}" {dede:php} if($refObj->Fields['id'] == 0){echo "class='active'";}{/dede:php}>主页</a></li>
+        <!-- {dede:channel row='9' type='top' currentstyle="<li><a href='~typelink~' class="active">~typename~</a></li>"}
+            <li>
+            	<a href="[field:global.cfg_basehost/][field:typeurl/]" [field:rel/] title="[field:typename/]">[field:typename/]</a>
+            </li> 
+        {/dede:channel} -->
+		{dede:channel row='9' type='top' currentstyle="<li><a href='~typelink~' class='active'>~typename~</a></li>"} 
+			<li>
+				<a href='[field:global.cfg_basehost/][field:typelink/]' [field:rel/]>[field:typename/]</a> 
+			</li> 
+		{/dede:channel}
+        <!-- {dede:channel type='top' }
+                               <li><a href="[field:global.cfg_basehost/][field:typeurl/]" title="[field:typename/]">[field:typename/]</a></li> 
+                               {/dede:channel} -->           
+    </ul>
+</div><!-- header end -->
+{dede:php}
+	<!-- echo "<pre/>";
+	echo  intval($refObj->Fields['id']);
+	print_r($GLOBALS); -->
+{/dede:php}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+ -- 
+ -- @authors FangYaFei (1120309265@qq.com)
+ -- @date    2014-05-23 16:49:41
+ -- @version $Id$
+-->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.seotitle /}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="{dede:global.cfg_basehost/}{dede:global.cfg_templets_skin/}/style/page.css" rel="stylesheet" media="screen" type="text/css" />
+</head>
+<body>    
+    <div class="main">
+    	<!-- logo start -->
+        {dede:include file="logo.htm"/}
+        <!-- header start -->
+        {dede:include file="head.htm"/}
+        <div class="position">
+            {dede:field.position/}
+            <div class="hr"></div>
+        </div>
+        
+        <div class="middle">
+            <div class="left">
+                <div class="viewbox">
+					<div class="title">
+						<h2>{dede:field.title /}</h2>
+					</div><!-- /title -->
+					<div class="infolist">
+						<small>软件类型：</small><span>{dede:field.softtype/}</span>
+						<small>授权方式：</small><span>{dede:field.accredit/}</span>
+						<small>界面语言：</small><span>{dede:field.language/}</span>
+						<small>软件大小：</small><span>{dede:field.softsize/}</span>
+						<small>文件类型：</small><span>{dede:field.filetype/}</span>
+						<small>运行环境：</small><span>{dede:field.os/}</span>
+						<small>软件等级：</small><span>{dede:field.softrank function='GetRankStar(@me)'/}</span>
+						<small>发布时间：</small><span>{dede:field.pubdate function="GetDateMk('@me')"/}</span>
+						<small>官方网址：</small><span>{dede:field.officialurl/}</span>
+				        <small>演示网址：</small><span>{dede:field.officialdemo/}</span>
+				        <small>下载次数：</small><span><script src="{dede:field.phpurl/}/disdls.php?aid={dede:field.id/}" language="javascript"></script></span>
+					</div><!-- /info -->
+					<div class="labeltitle">
+						<strong>软件介绍</strong>
+					</div>
+					<div class="content">
+						{dede:field.introduce/}
+					</div>
+					<div class="labeltitle">
+						<strong>下载地址</strong>
+					</div>
+					<div class="content">
+						<ul class="downurllist">
+		                	{dede:field name='softlinks'/}
+		                </ul>
+					</div>
+					<div class="labeltitle">
+						<strong>下载说明</strong>
+					</div>
+					<div class="intro">
+						{dede:softmsg/}
+					</div>
+				</div>	
+				<div class="boxoff"> 
+                    <strong>------分隔线----------------------------</strong> 
+                </div>
+                <div class="handle">
+                   <div class="context">
+                        <ul>
+                            <li>{dede:prenext get='pre'/}</li>
+                            <li>{dede:prenext get='next'/}</li>
+                        </ul>
+                    </div><!-- /context -->
+                    <div class="actbox">
+                        <ul>
+                            <li id="act-fav"><a href="{dede:field name='phpurl'/}/stow.php?aid={dede:field.id/}" target="_blank">收藏</a></li>
+                            <li id="act-err"><a href="{dede:field name='phpurl'/}/erraddsave.php?aid={dede:field.id/}&title={dede:field.title/}" target="_blank">挑错</a></li>
+                            <li id="act-pnt"><a href="#" onClick="window.print();">打印</a></li>
+                        </ul>
+                    </div><!-- /actbox -->
+                </div><!-- /handle -->
+                <script language="javascript" type="text/javascript">getDigg({dede:field.id/});</script>
+                <!-- //AJAX评论区 -->
+                {dede:include file='ajaxfeedback.htm' /}		
+            </div><!-- left end -->
+
+            <!-- right start -->
+            <div class="right">
+                <!-- side end -->
+                <div class="side">
+                    <div class="title">近期博客</div>
+                    <div class="content">
+                        <ul>
+                        	{dede:arclist typeid=1 row=12 titlelen=40 order=pubdate orderway='desc'}
+                            <li><h3><a href="[field:global.cfg_basehost/][field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]...</a></h3></li>
+                        	{/dede:arclist}                           
+                        </ul>
+                    </div>
+                    <p class="hr"></p>
+                </div><!-- side end -->
+                <!-- 文章分类 -->
+                <div class="side">
+                    <div class="title">文章分类</div>
+                    <div class="content">
+                    	{dede:channel typeid=1 type='son' currentstyle="<dl><a href='~typelink~'>~typename~</a></dl>}
+                        <dl><a href="[field:typelink/]">[field:typename/]</a></dl>
+                    	{/dede:channel}
+                    </div>
+                    <p class="hr"></p>
+                </div><!-- 文章分类 结束 --> 
+                <!-- count start -->
+                <div class="count">
+                    <div class="count-n">
+                        <p>博客数：85</p>
+                        <p>博客分类：12</p>
+                        <p>工具：23</p>
+                        <p>作品：5</p>
+                        <p>访问：46384</p>
+                    </div>
+                </div><!-- count start -->
+                <!-- 友好网站 start -->
+                <div class="side">
+                    <div class="count-n">
+                        <div class="title clear-padding">友好网站</div>
+                        <p><a href="">eoe安卓开发社区</a></p>
+                        <p><a href="">程序员之家</a></p>
+                        <p><a href="">百度联盟广告</a></p>
+                        <p><a href="">作品：5</a></p>
+                        <p><a href="">访问：46384</a></p>
+                    </div>
+                </div><!-- 友好网站 start -->
+            </div><!-- right end -->
+            <div class="clear"></div>
+        </div>      	
+    </div>
+
+    <!-- footer staret -->
+    {dede:include file='footer.htm' /}
+</body>
+</html>

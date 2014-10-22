@@ -1,0 +1,1 @@
+<span><a href="[field:typelink/]">{dede:field.typename/}</a></span>
